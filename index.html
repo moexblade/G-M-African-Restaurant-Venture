@@ -311,6 +311,95 @@
       width: min(100%, 360px);
     }
 
+    .menu-intro {
+      background: linear-gradient(135deg, rgba(23, 19, 15, 0.95) 0%, rgba(12, 10, 8, 0.96) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 20px;
+      padding: 1.35rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.13) 0%, transparent 40%, rgba(212, 175, 55, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .menu-intro-header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+
+    .menu-intro-badge {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .menu-intro h3 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .menu-intro p {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .menu-intro-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .menu-intro-group {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 0.95rem;
+    }
+
+    .menu-intro-group h4 {
+      color: var(--gold-hover);
+      font-size: 0.93rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-intro-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .menu-intro-group li {
+      color: var(--light-text);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -976,7 +1065,8 @@
                 <a href="contact.html">Contact</a>
                 <a href="reservation.html">Reservations</a>
             </div>
-            <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
+            <button class="menu-toggle" type="button" onclick="toggleMenu()"
+                aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1008,11 +1098,86 @@
             </div>
 
             <h2 class="section-title">Our Menu</h2>
+            <div class="menu-intro">
+                <div class="menu-intro-header">
+                    <span class="menu-intro-badge">Chef's Selection</span>
+                    <h3>Signature Menu Highlights</h3>
+                    <p>Authentic flavors, rich spices, and comfort-food favorites served fresh every day.</p>
+                </div>
+                <div class="menu-intro-grid">
+                    <div class="menu-intro-group">
+                        <h4>🔥 Grilled & Barbecue</h4>
+                        <ul>
+                            <li>Barbecue Fish</li>
+                            <li>Grilled Fish</li>
+                            <li>Barbecue Chicken</li>
+                            <li>Grilled Chicken</li>
+                            <li>Barbecue Goat Meat</li>
+                            <li>Grilled Meat</li>
+                            <li>Barbecue Beef</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🍚 Rice & Sides</h4>
+                        <ul>
+                            <li>Jollof Rice</li>
+                            <li>Fried Rice</li>
+                            <li>White Rice</li>
+                            <li>Coconut Rice</li>
+                            <li>Rice & Stew</li>
+                            <li>Plantain</li>
+                            <li>Chips</li>
+                            <li>Coleslaw</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🌶️ Pepper Soup</h4>
+                        <ul>
+                            <li>Fish Pepper Soup</li>
+                            <li>Goat Meat Pepper Soup</li>
+                            <li>Cow Meat Pepper Soup</li>
+                            <li>Chicken Pepper Soup</li>
+                            <li>Assorted Meat Pepper Soup</li>
+                            <li>Catfish Pepper Soup</li>
+                            <li>Seafood Pepper Soup</li>
+                            <li>Mixed Pepper Soup</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🥘 Nigerian Soups</h4>
+                        <ul>
+                            <li>Afang Soup</li>
+                            <li>Atama Soup</li>
+                            <li>Edikang Ikong Soup</li>
+                            <li>Editan Soup</li>
+                            <li>Afere Soup</li>
+                            <li>Okro Soup</li>
+                            <li>Egusi Soup</li>
+                            <li>Vegetable Soup</li>
+                            <li>White Soup</li>
+                            <li>Fisherman Soup</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🐟 Fish Specials</h4>
+                        <ul>
+                            <li>Fresh Fish</li>
+                            <li>Catfish</li>
+                            <li>Tilapia</li>
+                            <li>Croaker Fish</li>
+                            <li>Fish & Chips</li>
+                            <li>Grilled Fish & Rice</li>
+                            <li>Barbecue Fish & Plantain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="menu-content" id="menuContent"></div>
 
             <div class="services-section" id="services-section">
                 <h3>Our Services</h3>
-                <p>Flexible dining and event experiences designed around your comfort.</p>
+                <p>Flexible dining and event experiences designed around your
+                    comfort.</p>
                 <div class="services-grid">
                     <div class="service-item">Dine-in Services</div>
                     <div class="service-item">Takeaway</div>
@@ -1071,19 +1236,29 @@
             </div>
             <div class="footer-content">
                 <div class="footer-contact">
-                    <a href="tel:+2348000000001">📞 +234 800 000 0001</a>
-                    <a href="tel:+2348000000002">📞 +234 800 000 0002</a>
-                    <a href="mailto:info@gmandmafrican.com">✉️ info@gmandmafrican.com</a>
+                    <a href="tel:+2348000000001">📞 +2347055409162,
+                    </a>
+                    <a href="tel:+2348000000002">📞 +2347026841247</a>
+                    <a href="mailto:gmafricanrestaurant@gmail.com">✉️
+                        gmafricanrestaurant@gmail.com</a>
                 </div>
                 <div class="social-links" aria-label="Social media links">
-                    <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z"/></svg>
+                    <a href="https://facebook.com" target="_blank"
+                        rel="noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path
+                                d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z" /></svg>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                    <a href="https://instagram.com" target="_blank"
+                        rel="noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18"
+                                height="18" rx="4" /><circle cx="12" cy="12"
+                                r="4" /><circle cx="17.5" cy="6.5"
+                                r="1" /></svg>
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
-                        <svg viewBox="0 0 24 24"><path d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z"/></svg>
+                    <a href="https://x.com" target="_blank" rel="noreferrer"
+                        aria-label="X">
+                        <svg viewBox="0 0 24 24"><path
+                                d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z" /></svg>
                     </a>
                 </div>
             </div>
