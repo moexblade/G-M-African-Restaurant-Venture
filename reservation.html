@@ -244,27 +244,34 @@
         .menu-toggle { display: inline-flex; }
 
         .nav-links {
+          display: none;
           position: fixed;
-          top: 76px;
-          right: 5%;
-          background: rgba(10,10,10,0.96);
-          border: 1px solid rgba(212, 175, 55, 0.18);
-          border-radius: 16px;
-          box-shadow: var(--soft-shadow);
-          padding: 0.6rem;
+          inset: 76px 0 auto 0;
+          width: 100%;
+          height: calc(100vh - 76px);
+          background: rgba(10,10,10,0.98);
+          backdrop-filter: blur(12px);
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 1.25rem 4%;
           flex-direction: column;
           align-items: flex-start;
-          min-width: 220px;
-          opacity: 0;
-          pointer-events: none;
-          transform: translateY(-8px);
-          transition: opacity var(--ease), transform var(--ease);
+          gap: 0.8rem;
+          overflow-y: auto;
+          z-index: 999;
         }
 
         .nav-links.active {
-          opacity: 1;
-          pointer-events: auto;
-          transform: translateY(0);
+          display: flex;
+        }
+
+        .nav-links a {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          border: 1px solid rgba(212, 175, 55, 0.16);
+          border-radius: 12px;
+          font-size: 1rem;
         }
 
         .reservation-grid {
@@ -282,7 +289,7 @@
           <span class="logo-mark">
             <img src="assets/logo.jpeg" alt="G & M African logo" />
           </span>
-          <span>G & M African</span>
+          <span>G & M African Restaurant Venture</span>
         </a>
         <div class="nav-links" id="navLinks">
           <a href="about.html">About Us</a>

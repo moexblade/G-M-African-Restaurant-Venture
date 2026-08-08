@@ -332,11 +332,25 @@
 
         .nav-links.open {
           display: flex;
+          position: fixed;
+          inset: 76px 0 auto 0;
+          width: 100%;
+          height: calc(100vh - 76px);
+          padding: 1.25rem 4%;
+          background: rgba(10, 10, 10, 0.98);
+          backdrop-filter: blur(12px);
+          z-index: 999;
+          justify-content: flex-start;
+          gap: 0.8rem;
+          overflow-y: auto;
         }
 
         .nav-links a {
           width: 100%;
-          padding: 0.7rem 0.9rem;
+          padding: 0.9rem 1rem;
+          border: 1px solid rgba(212, 175, 55, 0.16);
+          border-radius: 12px;
+          font-size: 1rem;
         }
       }
     </style>
@@ -348,7 +362,7 @@
           <span class="logo-mark">
             <img src="assets/logo.jpeg" alt="G & M African logo" />
           </span>
-          <span>G & M African</span>
+          <span>G & M African Restaurant Venture</span>
         </a>
         <div class="nav-links" id="navLinks">
           <a href="about.html">About Us</a>
