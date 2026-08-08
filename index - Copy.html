@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>G & M African Restaurant Venture</title>
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --font-body: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --gold: #d4af37;
+      --gold-hover: #f3e5ab;
+      --black: #0d0d0d;
+      --dark-card: #1a1a1a;
+      --light-text: #f5f5f5;
+      --gray-text: #a0a0a0;
+      --soft-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+      --radius: 14px;
+      --ease: 320ms ease;
+      --terracotta: #c1662f;
+      --forest: #3f6b4f;
+      --card-bg: #17130f;
+      --card-bg-hover: #1d1811;
+      --stripe: linear-gradient(90deg, var(--gold) 0%, var(--terracotta) 50%, var(--forest) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-body);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: radial-gradient(circle at top right, #1b1b1b 0%, var(--black) 44%);
+      color: var(--light-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll { overflow: hidden; }
+
+    header {
+      background: linear-gradient(135deg, rgba(13, 13, 13, 0.96) 0%, rgba(20, 20, 20, 0.9) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.24);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.85rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 72px;
+      height: 72px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-left: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      margin-left: 0.45rem;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--light-text);
+      border-radius: 999px;
+      transition: transform var(--ease), opacity var(--ease);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-links a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      transition: background-color var(--ease), color var(--ease);
+    }
+
+    .nav-links a:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+    }
+
+    .cart-btn {
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.24);
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+
+    .cart-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(212, 175, 55, 0.33);
+    }
+
+    .cart-badge {
+      background: #e74c3c;
+      color: #fff;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      margin-left: 5px;
+      display: inline-block;
+    }
+
+    .cart-badge.bump { animation: bump 350ms ease; }
+
+    .hero {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.66)),
+        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80')
+          center/cover;
+      min-height: 62vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 7vw, 3.4rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+      animation: fadeUp 700ms ease both;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.7vw, 1.2rem);
+      max-width: 680px;
+      margin-bottom: 1.7rem;
+      animation: fadeUp 700ms ease 140ms both;
+    }
+
+    .hero-link {
+      text-decoration: none;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.68rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform var(--ease), background-color var(--ease);
+      animation: fadeUp 700ms ease 220ms both;
+    }
+
+    .hero-link:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .section { padding: 3.2rem 5%; }
+
+    .section-title {
+      text-align: center;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .branch-picker { text-align: center; margin-bottom: 2rem; }
+
+    .branch-picker select {
+      background: var(--dark-card);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      width: min(100%, 360px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 2.6rem;
+    }
+
+    .menu-section-block {
+      position: relative;
+      background: linear-gradient(180deg, var(--card-bg) 0%, #120f0b 100%);
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      border-radius: var(--radius);
+      padding: 2rem 1.4rem 1.4rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      overflow: visible;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 700ms ease forwards;
+    }
+
+    .menu-section-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.4rem;
+      right: 1.4rem;
+      height: 3px;
+      border-radius: 0 0 3px 3px;
+      background: var(--stripe);
+      opacity: 0.85;
+    }
+
+    .menu-section-badge {
+      position: absolute;
+      top: -22px;
+      left: 1.4rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--black);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-section-badge svg { width: 22px; height: 22px; }
+
+    .menu-section-header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.3rem;
+      align-items: stretch;
+      margin-bottom: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .menu-section-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .menu-section-block h3 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .section-intro {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      max-width: 46ch;
+    }
+
+    .section-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray-text);
+    }
+
+    .section-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gray-text);
+      display: inline-block;
+    }
+
+    .section-meta strong {
+      color: var(--gold-hover);
+      font-weight: 600;
+    }
+
+    .menu-section-visual {
+      position: relative;
+      min-height: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: transform var(--ease);
+    }
+
+    .menu-section-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 600ms ease;
+    }
+
+    .menu-section-block:hover .menu-section-visual img {
+      transform: scale(1.05);
+    }
+
+    .menu-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.78) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 1rem;
+    }
+
+    .menu-visual-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(13, 13, 13, 0.78);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      border-radius: 999px;
+      padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+      backdrop-filter: blur(4px);
+      flex-wrap: wrap;
+    }
+
+    .menu-visual-tag .text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .menu-visual-tag .label {
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .menu-visual-tag .name {
+      color: var(--light-text);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .menu-group + .menu-group {
+      margin-top: 1.5rem;
+    }
+
+    .menu-group-title {
+      color: var(--gold-hover);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
+    }
+
+    .menu-item-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+
+
+    .menu-item-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 13px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 550ms ease forwards;
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease), background-color var(--ease);
+    }
+
+    .menu-item-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.45);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .menu-item-card .menu-item-img-wrap {
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .menu-item-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 500ms ease;
+    }
+
+    .menu-item-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .menu-item-card-content {
+      padding: 1rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .menu-item-card h4 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.2px;
+    }
+
+    .menu-item-card p {
+      color: var(--gray-text);
+      font-size: 0.88rem;
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .menu-item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .menu-item-price {
+      color: var(--gold-hover);
+      font-weight: 700;
+      font-size: 0.92rem;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #202020 0%, #171717 100%);
+      border: 1px solid #282828;
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--soft-shadow);
+      transform: translateY(10px);
+      opacity: 0;
+      animation: fadeUp 600ms ease forwards;
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.55);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.52);
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .card-content { padding: 1.2rem; }
+    .card-title {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-price { font-size: 1.08rem; font-weight: 700; margin: 0.5rem 0; color: #fff; }
+
+    .add-btn {
+      width: 100%;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.64rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: background-color var(--ease), color var(--ease), transform var(--ease);
+    }
+
+    .add-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-1px);
+    }
+
+    .add-btn-sm {
+      width: auto;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+    }
+
+    /* Sliding Cart Drawer */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(380px, 100vw);
+      height: 100%;
+      background: #141414;
+      border-left: 1px solid var(--gold);
+      z-index: 2000;
+      transition: transform var(--ease);
+      transform: translateX(100%);
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -12px 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: var(--light-text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-items { flex-grow: 1; overflow-y: auto; margin: 1rem 0; }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #222;
+      padding-bottom: 0.5rem;
+      gap: 0.6rem;
+    }
+
+    .cart-footer { border-top: 1px solid #333; padding-top: 1rem; }
+
+    /* Modal Form */
+    .modal {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity var(--ease), visibility var(--ease);
+      padding: 1rem;
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--dark-card);
+      border: 1px solid rgba(212, 175, 55, 0.72);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 460px;
+      border-radius: var(--radius);
+      box-shadow: var(--soft-shadow);
+      transform: translateY(8px);
+      transition: transform var(--ease);
+    }
+
+    .modal.open .modal-content { transform: translateY(0); }
+
+    .modal input,
+    .modal textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0 1rem;
+      background: var(--black);
+      border: 1px solid #333;
+      color: var(--light-text);
+      border-radius: 9px;
+    }
+
+    .modal input:focus,
+    .modal textarea:focus,
+    .branch-picker select:focus {
+      outline: 2px solid rgba(212, 175, 55, 0.65);
+      outline-offset: 1px;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #222;
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand .logo-mark {
+      width: 36px;
+      height: 36px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem 1.2rem;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem 1rem;
+    }
+
+    .footer-contact a {
+      color: var(--light-text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--ease);
+    }
+
+    .footer-contact a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: var(--gold);
+      transition: transform var(--ease), background-color var(--ease);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    .social-links svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .menu-item-card:nth-child(1) { animation-delay: 60ms; }
+    .menu-item-card:nth-child(2) { animation-delay: 130ms; }
+    .menu-item-card:nth-child(3) { animation-delay: 200ms; }
+    .menu-item-card:nth-child(4) { animation-delay: 270ms; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bump {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.26); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.85rem 4%;
+      }
+
+      .logo {
+        font-size: 1.08rem;
+        letter-spacing: 1px;
+      }
+
+      .header-content {
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        order: 3;
+        margin-left: 0;
+        padding-top: 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+      }
+
+      .cart-btn {
+        font-size: 0.95rem;
+        padding: 0.58rem 0.95rem;
+      }
+
+      .section { padding: 2.6rem 4%; }
+      .hero { min-height: 56vh; }
+      .card img { height: 170px; }
+      .menu-section-header {
+        grid-template-columns: 1fr;
+      }
+      .menu-section-visual {
+        min-height: 200px;
+      }
+      .menu-item-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-item-card img {
+        height: 260px;
+      }
+      .modal-content { padding: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 52vh; }
+      .hero p { margin-bottom: 1.2rem; }
+      .hero-link { width: min(100%, 220px); text-align: center; }
+      .grid { grid-template-columns: 1fr; }
+      .cart-drawer { padding: 1rem; }
+      .branch-picker label {
+        display: block;
+        margin: 0 0 0.6rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+    </head>
+    <body>
+
+        <header>
+            <a href="index.html" class="logo">
+                <span class="logo-mark">
+                    <img src="assets/logo.jpeg" alt="G & M African logo" />
+                </span>
+                <span>G & M African</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="about.html">About Us</a>
+                <a href="#menu-section">Menu</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span
+                    class="cart-badge" id="cartBadge">0</span></button>
+        </header>
+
+        <section class="hero">
+            <h1>Order Online & Delivery</h1>
+            <p>Freshly cooked authentic African delicacies delivered straight to
+                your door or ready for takeaway.</p>
+            <a class="hero-link" href="#menu-section">Explore Menu</a>
+        </section>
+
+        <section class="section" id="menu-section">
+            <div class="branch-picker">
+                <label style="margin-right: 10px; font-weight: bold;">Select
+                    Your Branch:</label>
+                <select id="branchSelect">
+                    <option value="Lagos (+2348000000001)">Lagos Branch</option>
+                    <option value="Abuja (+2348000000002)">Abuja Branch</option>
+                    <option value="Port Harcourt (+2348000000003)">Port Harcourt
+                        Branch</option>
+                    <option value="Uyo (+2348000000004)">Uyo Branch</option>
+                    <option value="Eket (+2348000000005)">Eket Branch</option>
+                    <option value="Oron (+2348000000006)">Oron Branch</option>
+                </select>
+            </div>
+
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-content" id="menuContent"></div>
+        </section>
+
+        <!-- Cart Drawer -->
+        <div class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h3 style="color: var(--gold);">Your Order</h3>
+                <button class="close-cart"
+                    onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <h4>Total: ₦<span id="cartTotal">0</span></h4>
+                <button class="add-btn"
+                    style="background: var(--gold); color: #000; margin-top: 1rem;"
+                    onclick="openCheckout()">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Checkout Modal -->
+        <div class="modal" id="checkoutModal">
+            <div class="modal-content">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Delivery
+                    Details</h3>
+                <input type="text" id="custName" placeholder="Full Name"
+                    required>
+                <input type="tel" id="custPhone" placeholder="Phone Number"
+                    required>
+                <textarea id="custAddress"
+                    placeholder="Delivery Address / Special Instructions"
+                    rows="3" required></textarea>
+                <button class="add-btn"
+                    style="background: var(--gold); color: #000;"
+                    onclick="submitOrder()">Submit via WhatsApp</button>
+                <button class="add-btn"
+                    style="margin-top: 0.5rem; border: none;"
+                    onclick="closeCheckout()">Cancel</button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-brand">
+                <span class="logo-mark">
+                    <img src="assets/logo.jpeg" alt="G & M African logo" />
+                </span>
+                <span>G & M African</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <a href="tel:+2348000000001">📞 +234 800 000 0001</a>
+                    <a href="tel:+2348000000002">📞 +234 800 000 0002</a>
+                    <a href="mailto:info@gmandmafrican.com">✉️ info@gmandmafrican.com</a>
+                </div>
+                <div class="social-links" aria-label="Social media links">
+                    <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2026 G & M African Restaurant Venture. All Rights
+                Reserved.</p>
+        </footer>
+
+        <script>
+    const fallbackImage = 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80';
+
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!navLinks || !toggle) return;
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    document.addEventListener('click', (event) => {
+      const navLinks = document.getElementById('navLinks');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!navLinks || !toggle) return;
+      const clickedInsideNav = navLinks.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+      if (window.innerWidth <= 768 && !clickedInsideNav && !clickedToggle) {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          const navLinks = document.getElementById('navLinks');
+          const toggle = document.querySelector('.menu-toggle');
+          navLinks?.classList.remove('open');
+          toggle?.classList.remove('active');
+          toggle?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    const menuSections = [
+      {
+        title: 'Rice Dishes',
+        intro: 'Comforting staples with bold seasoning and rich Nigerian flavors.',
+        items: [
+          { name: 'Jollof Rice', price: 4500, desc: 'Tomato-rich rice with savory seasoning.', image: 'https://images.food52.com/wOa5GeKf0FKYEUmJRZ7gtNjVi68=/583d2633-65c0-43d6-9b52-cba0c8fa1399--2019-1210_nigerian-jollof-rice_3x2_rocky-luten_006.jpg' },
+          { name: 'Fried Rice', price: 4800, desc: 'A colorful mix of rice, veggies, and spice.', image: 'https://www.cubesnjuliennes.com/wp-content/uploads/2024/02/Best-Shrimp-Fried-Rice-Recipe.jpg' },
+          { name: 'White Rice & Stew', price: 5000, desc: 'Steamed rice served with hearty stew.', image: 'https://naijastickitchen.com/wp-content/uploads/2024/01/Buka-Stew-with-White-Rice-served-with-Plantain.jpeg' },
+          { name: 'Ofada Rice', price: 5200, desc: 'Traditional local rice with authentic taste.', image: 'https://www.afropots.com/wp-content/uploads/2025/01/Ofada-Rice.jpg' },
+          { name: 'Coconut Rice', price: 5000, desc: 'Fragrant rice simmered in coconut milk.', image: 'https://www.kitchensanctuary.com/wp-content/uploads/2024/08/Coconut-Rice-Pan-Method-tall-Square-FS.jpg' },
+          { name: 'Native Rice', price: 5300, desc: 'Local rice cooked with palm oil and vegetables.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5eWDFplh-uULOtUCUmTknHujJhn2ATqezI6mLBjpSOZ6X0hVOwogqcs&s=10' }
+        ]
+      },
+      {
+        title: 'Soups & Swallows',
+        intro: 'Signature soups paired with warm swallows for a satisfying meal.',
+        groups: [
+          {
+            label: 'Soups',
+            items: [
+              { name: 'Egusi Soup', price: 6500, desc: 'Ground melon soup with rich seasoning.', image: 'https://weeatatlast.com/wp-content/uploads/2024/01/egusi-soup-with-chicken-recipe-500x500.jpg' },
+              { name: 'Efo Riro', price: 6200, desc: 'Spinach soup with assorted meats and fish.', image: 'https://kikifoodies.com/wp-content/uploads/2024/10/photo-output-9-scaled.jpeg' },
+              { name: 'Okra Soup', price: 6300, desc: 'Silky okra soup with assorted meat and fish.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXlrRmaZQGoZlP6KzcwsIiTbzNB_thCTCNy6UehYHqe73zbPcbRHgsZP5&s=10' },
+              { name: 'Ogbono Soup', price: 6400, desc: 'Hearty draw soup made from ground ogbono seeds.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVmCuwixSi61u4LUSiiApzps_2dlEJ3gcVWCKruYeoAEyuhhAyDlx_Fs&s=10' },
+              { name: 'Afang Soup', price: 6700, desc: 'Rich vegetable soup, a Calabar delicacy.', image: 'https://eatwellabi.com/wp-content/uploads/2023/01/Afang-soup-18.jpg' },
+              { name: 'Bitterleaf Soup', price: 6300, desc: 'Traditional soup made with washed bitterleaf.', image: 'https://empressrestaurants.co.uk/_next/image?url=https%3A%2F%2Fapi.empressrestaurants.co.uk%2Fuploads%2Fproducts%2F80345abb-815c-420c-bc7a-5bf455c774ce.png&w=3840&q=75' },
+              { name: 'Vegetable Soup', price: 6100, desc: 'Garden vegetables simmered with assorted meats.', image: 'https://cdn.loveandlemons.com/wp-content/uploads/2019/12/vegetable-soup.jpg' },
+              { name: 'Fisherman Soup', price: 7500, desc: 'A hearty soup loaded with fresh catch and spices.', image: 'https://lowcarbafrica.com/wp-content/uploads/2024/06/Fisherman-Soup-3.jpg' },
+              { name: 'Banga Soup', price: 6600, desc: 'Palm nut soup with deep, smoky flavor.', image: 'https://i.pinimg.com/736x/49/51/0b/49510b512116d6560beaab22b9a34766.jpg' },
+              { name: 'Groundnut Soup', price: 6200, desc: 'Creamy soup made from ground peanuts.', image: 'https://www.africanbites.com/wp-content/uploads/2024/07/Groundnut-Soup-From-Scratch-3-scaled.jpeg' }
+            ]
+          },
+          {
+            label: 'Swallows',
+            items: [
+              { name: 'Pounded Yam', price: 1800, desc: 'Smooth and fluffy swallow served hot.', image: 'https://travelandmunchies.com/wp-content/uploads/2025/03/IMG_9666-scaled.jpg' },
+              { name: 'Fufu', price: 1700, desc: 'Soft pounded cassava swallow.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi39T1KaQ-Mc-rDFMVVVbxoQxlcqWqFAb3eIXuECifsOFWQhAEAK84gV4x&s=10' },
+              { name: 'Eba', price: 1600, desc: 'Smooth swallow made from garri.', image: 'https://kscuisine.com/wp-content/uploads/2019/07/eba-swallow.jpg' },
+              { name: 'Amala', price: 1700, desc: 'Soft, dark swallow made from yam flour.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6kMQukIqsTgavQVlaTuPCK6VDwldhnNuVpBA2oNpkZsc3LvjETQFQJI&s=10' },
+              { name: 'Wheat', price: 1800, desc: 'Light, fibre-rich swallow made from wheat flour.', image: 'https://cdn.businessday.ng/2023/04/Wheat-meal.jpg' },
+              { name: 'Garri', price: 1500, desc: 'Classic cassava swallow, soaked or swallowed.', image: 'https://assets.bonappetit.com/photos/60ef61ea1cd5ffae42c1d614/1:1/w_1687,h_1687,c_limit/Garri.jpg' }
+            ]
+          }
+        ]
+      },
+      {
+        title: 'Proteins & Meat Options',
+        intro: 'Flavor-packed proteins, grilled, fried, or stewed to perfection.',
+        items: [
+          { name: 'Grilled Chicken', price: 5600, desc: 'Tender chicken with a smoky finish.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRrMzTWoMSWLSoFQE7iFsIpWlDFRZ6OeUbB3EV4dZF9pKxBHcI-mVqb8I&s=10' },
+          { name: 'Pepper Chicken', price: 5800, desc: 'Spicy chicken with a bold pepper glaze.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqYcY1qZ7azS5OaC9tCY_6yhxKhJGJP9CqrDdlOFIZPtoTOD6BdjQxr6I&s=10' },
+          { name: 'Fried Chicken', price: 5500, desc: 'Crispy fried chicken, golden and seasoned.', image: 'https://www.tasteofhome.com/wp-content/uploads/2025/05/Fried-Chicken_TOHJJ22_6445_DR-_02_03_11b.jpg' },
+          { name: 'Turkey', price: 6500, desc: 'Well-seasoned grilled turkey portions.', image: 'https://www.realsimple.com/thmb/f9TYHClKuVtPmQC53_tzvNmJHsU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smoky-maple-turkey-recipe-1121FOO-d0e29c69b3ae475dbfbccf5b5bb229d0.jpg' },
+          { name: 'Goat Meat', price: 7200, desc: 'Slow-cooked goat meat with rich spices.', image: 'https://thatgirlcookshealthy.com/wp-content/uploads/2023/04/Air-Fried-Goat-Meat-Bites-image.png' },
+          { name: 'Beef', price: 5000, desc: 'Tender beef cuts simmered in spiced sauce.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbQ_-sKCuRWjyeoKE958OjO9DS9mz8YKn_OstZXVxjAw&s=10' },
+          { name: 'Assorted Meat', price: 6800, desc: 'A mix of well-seasoned traditional cuts.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs_BVnrQB3yaNGyQMEJBk3mgQOlJGLYpab7PFuVd6dUQ&s=10' },
+          { name: 'Cow Tail', price: 6500, desc: 'Slow-braised cow tail, soft and flavorful.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKk2RYHI17yCxbtaYsxmO85-kiP4Pj430ztpqzBjLUBg&s=10' },
+          { name: 'Ponmo / Kpomo', price: 3000, desc: 'Chewy, well-seasoned cow skin.', image: 'https://i.ytimg.com/vi/_MUosCdKcpY/maxresdefault.jpg' },
+          { name: 'Shaki (Tripe)', price: 3200, desc: 'Tender cow tripe simmered in spices.', image: 'https://cdn.shopify.com/s/files/1/0807/4903/5848/files/Fresh_Shaki_meat_-_buy_at_Niyis.jpg?v=1775235065' },
+          { name: 'Grilled Fish', price: 6800, desc: 'Fresh fish served with herbs and pepper.', image: 'https://api.photon.aremedia.net.au/wp-content/uploads/sites/10/Gt/2020/04/14/18491/web_grilledfish.jpg?fit=600%2C500&format=auto' },
+          { name: 'Fried Fish', price: 6500, desc: 'Crispy fried fish, seasoned and golden.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi1QjEjTXKv9tc8Q0Zw5IqSKeB5PoCuX4IzgQe3k7u8HczkoGGG5P4Gx_U&s=10' },
+          { name: 'Stock Fish', price: 5800, desc: 'Dried fish simmered until tender and savory.', image: 'https://www.fromnorway.com/globalassets/recipes/stockfish/list-stockfish-paccheri-puttanesca.jpg' }
+        ]
+      },
+      {
+        title: 'Sides & Extras',
+        intro: 'Delicious add-ons that complete your meal beautifully.',
+        items: [
+          { name: 'Fried / Boiled Plantain', price: 1800, desc: 'Fried or boiled plantain served warm.', image: 'https://gardeninthekitchen.com/wp-content/uploads/2024/06/fried-sweet-plantains_7497.jpg' },
+          { name: 'Moi Moi', price: 2200, desc: 'Steamed bean pudding with a soft texture.', image: 'https://www.africanbites.com/wp-content/uploads/2023/12/IMG_4707-scaled.jpg' },
+          { name: 'Akara (Beans Cake)', price: 1500, desc: 'Crispy fried bean cakes.', image: 'https://cdn.apartmenttherapy.info/image/upload/v1634332056/k/Photo/Recipes/2021-10-akara-reshoot/2021-10-12_ATK8157.jpg' },
+          { name: 'Yam Chips', price: 2000, desc: 'Crunchy fried yam chips with seasoning.', image: 'https://www.allrecipes.com/thmb/sJjrSLTGU5b0BhDXhiybT_ose6s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4578432-baked-yam-fries-with-dip-Melissa-Goff-4x3-1-dec7e76a7fe746babb3a0246dc672742.jpg' },
+          { name: 'Crispy Gizzard', price: 3500, desc: 'Peppered gizzard, fried until crisp.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfaUUj9tx3kNjG8-SExtTh22UEE3Owna0lplFkjpEPStYkgYEZP7j-oHi&s=10' },
+          { name: 'Coleslaw', price: 1800, desc: 'Fresh, creamy cabbage and carrot slaw.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLypHg30w7UxVDA01D2gmmRUruUul966G4cpsoRdatpD8fzRYdf1iLOEs&s=10' },
+          { name: 'Salad', price: 2000, desc: 'A crisp mix of fresh garden vegetables.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6TqVzwZ88GXIqZZizybPlfTdWhxB5Mrb9uP-A08-auQei34Z4y8cn7Os&s=10' }
+        ]
+      },
+      {
+        title: 'Kids Menu',
+        intro: 'Simple, tasty plates made just right for little appetites.',
+        items: [
+          { name: 'Jollof Rice & Chicken', price: 3600, desc: 'A kid-friendly portion of jollof and chicken.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvuVzd8WKck8bzaXrrBWBSbCme5sd_RyPbsLY_Jd1vqZAQsnhEcTep5iXK&s=10' },
+          { name: 'Fried Rice & Chicken', price: 3600, desc: 'A kid-friendly portion of fried rice and chicken.', image: 'https://nkechiajaeroh.com/wp-content/uploads/2020/12/Nigerian-fried-rice-recipe-main-photo-3.jpg' },
+          { name: 'Chicken Nuggets & Chips', price: 3400, desc: 'Crispy nuggets served with chips.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvdUkdFZXEKDeVHRWjzkXxnq1xRLBQNLtB_CLhTmUtW43WdI2b04e4MOEs&s=10' },
+          { name: 'Moi Moi & Plantain', price: 3200, desc: 'Soft bean pudding with sweet plantain.', image: 'https://i.ytimg.com/vi/I6Wr8lFqTDc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCYEBu3jWyNUgL6pE1k805X1YA_3A' },
+          { name: 'Fruit Juice', price: 1400, desc: 'Fresh fruit juice for a refreshing sip.', image: 'https://thanhcongvina.com/wp-content/uploads/2024/11/difference-between-fruit-juice-concentrate-and-fresh-fruit-juice-2.jpg' }
+        ]
+      },
+      {
+        title: 'Drinks',
+        intro: 'Choose from refreshing non-alcoholic favorites or a cold classic.',
+        groups: [
+          {
+            label: 'Non-Alcoholic Drinks',
+            items: [
+              { name: 'Zobo Drink', price: 1600, desc: 'Sweet hibiscus drink with a bright flavor.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47LoHGnhYs2ZszJo6WvTJwdsFPzMvJflf6bjFfyGmljMtsqGcQRxyoSs&s=10' },
+              { name: 'Hibiscus Tea', price: 1500, desc: 'Warm, tart tea brewed from hibiscus petals.', image: 'https://tinybatchcooking.com/wp-content/uploads/2024/09/Green-Hibiscus-Tea2.jpg' },
+              { name: 'Kunu (Tigernut Drink)', price: 1600, desc: 'Creamy, naturally sweet tigernut drink.', image: 'https://www.dashofjazz.com/wp-content/uploads/2024/03/Dash-of-Jazz-Kunu-Aya-Tiger-Nut-Milk-14.jpg' },
+              { name: 'Non-Alcoholic Palm Wine', price: 1800, desc: 'The classic palm wine taste, alcohol-free.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSImrTb3h7J1Jiw_DOexnbYkTVflt7tx2ijuItW9DQ-86Flj5OEbsv_hiFV&s=10' },
+              { name: 'Fresh Fruit Juice', price: 1800, desc: 'A chilled blend of fresh fruit flavors.', image: 'https://monacolife.net/wp-content/uploads/2023/05/First-Image.jpg' },
+              { name: 'Bottled Water', price: 500, desc: 'Chilled bottled water.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0yiEeFNMZB7YVoLrrUHPd7mgXOGoL6C3CpJMiIAfGRAVhD1MJg3R_WewX&s=10' },
+              { name: 'Soft Drinks (Coke, Fanta, Sprite & More)', price: 800, desc: 'Ice-cold classic soft drinks.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROeyDCFggbBMDnFMyfr-H4_hqvPFwoxTx0Mbe1ZEnwKfNl-Zi0SXPl5XdQ&s=10' },
+              { name: 'Malt Drinks', price: 1700, desc: 'Smooth and refreshing malt beverage.', image: 'https://rita.com.vn/images/Frontpage/Poster_Malt_drink_330ml.webp' }
+            ]
+          },
+          {
+            label: 'Alcoholic Drinks',
+            items: [
+              { name: 'Palm Wine', price: 2500, desc: 'Traditional palm wine served chilled.', image: 'https://www.tastingtable.com/img/gallery/what-is-palm-wine-and-why-is-it-so-popular-in-india/l-intro-1720556028.jpg' },
+              { name: 'Guinness Stout', price: 2000, desc: 'Rich, full-bodied stout, served cold.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'Star Lager', price: 1800, desc: 'Nigeria\'s classic crisp lager beer.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'Heineken', price: 2200, desc: 'Premium lager with a smooth, balanced taste.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'Gulder', price: 1800, desc: 'Bold, full-flavored Nigerian lager.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'Smirnoff Ice', price: 2200, desc: 'Light, fruity malt-based cooler.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'Red Wine', price: 8000, desc: 'A smooth, full-bodied glass of red wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
+              { name: 'White Wine', price: 8000, desc: 'A crisp, chilled glass of white wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' }
+            ]
+          }
+        ]
+      }
+    ];
+
+    let cart = [];
+
+    const categoryIcons = {
+      rice: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M5 12c0 4 3 7 7 7s7-3 7-7"/><path d="M8 12c0-1.5.5-3 2-5"/><path d="M14 12c0-2 .5-3.5 2-6"/></svg>',
+      soup: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M4 11c0 4.5 3.5 8 8 8s8-3.5 8-8"/><path d="M9 4c-1 1-1 2 0 3"/><path d="M13 4c-1 1-1 2 0 3"/></svg>',
+      protein: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15l7-7 3 3-7 7z"/><path d="M8 15l-4 4"/><path d="M13 4l3 3"/></svg>',
+      sides: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c5-1 8-6 7-12-6 0-10 3-11 8-.5 2.5.5 4 4 4z"/><path d="M12 21c0-6 2-9 6-12"/></svg>',
+      kids: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.6 5 .7-3.6 3.6.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.6 5-.7z"/></svg>',
+      drinks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 15a2 2 0 0 1-2 2H9.5a2 2 0 0 1-2-2z"/><path d="M6.5 8h11"/></svg>',
+      default: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M6 3c-1.5 0-2 1.5-2 3s.5 4 2 5M6 11c1.5-1 2-3 2-5s-.5-3-2-3"/><path d="M18 3c-2 0-3 2-3 6s1 5 1 5v6"/></svg>'
+    };
+
+    function iconFor(title) {
+      const t = title.toLowerCase();
+      if (t.includes('rice')) return categoryIcons.rice;
+      if (t.includes('soup') || t.includes('swallow')) return categoryIcons.soup;
+      if (t.includes('protein') || t.includes('meat')) return categoryIcons.protein;
+      if (t.includes('side')) return categoryIcons.sides;
+      if (t.includes('kid')) return categoryIcons.kids;
+      if (t.includes('drink')) return categoryIcons.drinks;
+      return categoryIcons.default;
+    }
+
+    function renderMenu() {
+      const container = document.getElementById('menuContent');
+      container.innerHTML = menuSections.map(section => {
+        const allItems = section.groups
+          ? section.groups.flatMap(g => g.items)
+          : section.items;
+        const prices = allItems.map(i => i.price);
+        const min = Math.min(...prices).toLocaleString();
+        const max = Math.max(...prices).toLocaleString();
+        const featured = allItems[0];
+
+        const itemCard = item => `
+              <div class="menu-item-card">
+                <div class="menu-item-img-wrap">
+                  <img src="${item.image || fallbackImage}" alt="${item.name}" loading="lazy">
+                </div>
+                <div class="menu-item-card-content">
+                  <h4>${item.name}</h4>
+                  <p>${item.desc}</p>
+                  <div class="menu-item-meta">
+                    <span class="menu-item-price">₦${item.price.toLocaleString()}</span>
+                    <button class="add-btn add-btn-sm" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            `;
+
+        const itemsMarkup = section.groups
+          ? section.groups.map(group => `
+              <div class="menu-group">
+                <h5 class="menu-group-title">${group.label}</h5>
+                <div class="menu-item-grid">
+                  ${group.items.map(itemCard).join('')}
+                </div>
+              </div>
+            `).join('')
+          : `<div class="menu-item-grid">${section.items.map(itemCard).join('')}</div>`;
+
+        return `
+        <div class="menu-section-block">
+          <div class="menu-section-badge" aria-hidden="true">${iconFor(section.title)}</div>
+          <div class="menu-section-header">
+            <div class="menu-section-text">
+              <h3>${section.title}</h3>
+              <p class="section-intro">${section.intro}</p>
+              <div class="section-meta">
+                <span><strong>${allItems.length}</strong> dishes</span>
+                <span class="dot"></span>
+                <span>₦${min}&ndash;₦${max}</span>
+              </div>
+            </div>
+            <div class="menu-section-visual">
+              <img src="${featured.image || fallbackImage}" alt="${featured.name}">
+              <div class="menu-visual-overlay">
+                <span class="menu-visual-tag">
+                  <span class="text">
+                    <span class="label">Featured</span>
+                    <span class="name">${featured.name} &middot; ₦${featured.price.toLocaleString()}</span>
+                  </span>
+                  <button class="add-btn add-btn-sm" onclick="addToCart('${featured.name.replace(/'/g, "\\'")}', ${featured.price})">Add</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          ${itemsMarkup}
+        </div>
+      `;
+      }).join('');
+    }
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+
+      const badge = document.getElementById('cartBadge');
+      badge.classList.remove('bump');
+      void badge.offsetWidth;
+      badge.classList.add('bump');
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      
+      document.getElementById('cartBadge').innerText = totalCount;
+      document.getElementById('cartTotal').innerText = totalPrice.toLocaleString();
+
+      const itemsContainer = document.getElementById('cartItems');
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p style="color: var(--gray-text);">Your cart is empty.</p>';
+      } else {
+        itemsContainer.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div>
+              <div style="font-weight: bold;">${item.name}</div>
+              <div style="color: var(--gray-text); font-size: 0.9rem;">₦${item.price.toLocaleString()} x ${item.qty}</div>
+            </div>
+            <div>₦${(item.price * item.qty).toLocaleString()}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function syncBodyScrollLock() {
+      const isCartOpen = document.getElementById('cartDrawer').classList.contains('open');
+      const isModalOpen = document.getElementById('checkoutModal').classList.contains('open');
+      document.body.classList.toggle('no-scroll', isCartOpen || isModalOpen);
+    }
+
+    function toggleCart(forceState) {
+      const drawer = document.getElementById('cartDrawer');
+      const isOpen = drawer.classList.contains('open');
+      const shouldOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
+      drawer.classList.toggle('open', shouldOpen);
+      syncBodyScrollLock();
+    }
+
+    function openCheckout() {
+      if (cart.length === 0) return alert("Please add items to your cart first.");
+      document.getElementById('checkoutModal').classList.add('open');
+      toggleCart(false);
+      syncBodyScrollLock();
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').classList.remove('open');
+      syncBodyScrollLock();
+    }
+
+function submitOrder() {
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const branch = document.getElementById('branchSelect').value;
+
+  if (!name || !phone || !address) {
+    return alert("Please fill out all contact fields.");
+  }
+
+  // Build itemized summary
+  const itemDetails = cart.map(i => `• ${i.name} (x${i.qty})`).join('\n');
+  const total = document.getElementById('cartTotal').innerText;
+
+  // Raw message string
+  const rawMessage = `*NEW ORDER - G & M RESTAURANT*\n\n` +
+                     `*Branch:* ${branch}\n` +
+                     `*Customer:* ${name}\n` +
+                     `*Phone:* ${phone}\n` +
+                     `*Address:* ${address}\n\n` +
+                     `*Items Ordered:*\n${itemDetails}\n\n` +
+                     `*Total Price:* ₦${total}`;
+
+  // Encode the message correctly for URLs
+  const encodedMessage = encodeURIComponent(rawMessage);
+
+  // Replace with your real target WhatsApp phone number (e.g., 2348012345678)
+  const targetPhoneNumber = "573234265620"; 
+
+  // Redirect to WhatsApp API
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhoneNumber}&text=${encodedMessage}`;
+  
+  window.open(whatsappUrl, '_blank');
+}
+
+    document.getElementById('checkoutModal').addEventListener('click', (event) => {
+      if (event.target.id === 'checkoutModal') {
+        closeCheckout();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (document.getElementById('checkoutModal').classList.contains('open')) {
+          closeCheckout();
+        }
+        if (document.getElementById('cartDrawer').classList.contains('open')) {
+          toggleCart(false);
+        }
+      }
+    });
+
+    renderMenu();
+    updateCartUI();
+  </script>
+    </body>
+</html>

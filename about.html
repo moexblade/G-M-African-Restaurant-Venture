@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - G & M African Restaurant Venture</title>
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --font-body: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --gold: #d4af37;
+      --gold-hover: #f3e5ab;
+      --black: #0d0d0d;
+      --dark-card: #1a1a1a;
+      --light-text: #f5f5f5;
+      --gray-text: #a0a0a0;
+      --soft-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+      --radius: 14px;
+      --ease: 320ms ease;
+      --terracotta: #c1662f;
+      --forest: #3f6b4f;
+      --card-bg: #17130f;
+      --card-bg-hover: #1d1811;
+      --stripe: linear-gradient(90deg, var(--gold) 0%, var(--terracotta) 50%, var(--forest) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-body);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: radial-gradient(circle at top right, #1b1b1b 0%, var(--black) 44%);
+      color: var(--light-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll { overflow: hidden; }
+
+    header {
+      background: linear-gradient(135deg, rgba(13, 13, 13, 0.96) 0%, rgba(20, 20, 20, 0.9) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.24);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.85rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .header-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 72px;
+      height: 72px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      margin-left: 0.45rem;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--light-text);
+      border-radius: 999px;
+      transition: transform var(--ease), opacity var(--ease);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-links a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--ease);
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      border-radius: 999px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .hero {
+      padding: 6rem 0 4rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-family: var(--font-display);
+      background: var(--stripe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--gray-text);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      font-family: var(--font-display);
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .content-text {
+      line-height: 1.8;
+      color: var(--light-text);
+    }
+
+    .content-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .content-text strong {
+      color: var(--gold);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .value-card {
+      background: rgba(23, 19, 15, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2rem;
+      border-radius: var(--radius);
+      transition: all var(--ease);
+    }
+
+    .value-card:hover {
+      background: rgba(29, 24, 17, 0.9);
+      border-color: rgba(212, 175, 55, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .value-card h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .value-card p {
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: rgba(23, 19, 15, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: all var(--ease);
+    }
+
+    .team-member:hover {
+      background: rgba(29, 24, 17, 0.9);
+      border-color: rgba(212, 175, 55, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .team-member h3 {
+      color: var(--gold);
+      margin-top: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .role {
+      color: var(--terracotta);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .team-member p {
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: rgba(23, 19, 15, 0.5);
+      border-radius: var(--radius);
+      margin-top: 3rem;
+    }
+
+    .cta-section h3 {
+      font-size: 1.8rem;
+      font-family: var(--font-display);
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--stripe);
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all var(--ease);
+      border: 2px solid transparent;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    footer {
+      background: rgba(13, 13, 13, 0.95);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--gray-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand .logo-mark {
+      width: 36px;
+      height: 36px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem 1.2rem;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem 1rem;
+    }
+
+    .footer-contact a {
+      color: var(--light-text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--ease);
+    }
+
+    .footer-contact a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: var(--gold);
+      transition: transform var(--ease), background-color var(--ease);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    .social-links svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-grid,
+      .values-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-content {
+        padding: 0 1rem;
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        order: 3;
+        margin-left: 0;
+        padding-top: 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+      }
+    }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-mark">
+                        <img src="assets/logo.jpeg" alt="G & M African logo" />
+                    </span>
+                    <span>G & M African</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="about.html" class="active">About Us</a>
+                    <a href="index.html#menu-section">Menu</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="reservation.html">Reservations</a>
+                </div>
+                <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="hero">
+                <h1>About G & M African Restaurant Venture</h1>
+                <p>Bringing authentic African cuisine and culture to the world, one meal at a time</p>
+            </section>
+
+            <section class="section">
+                <h2>About G & M</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p>
+                            We bring the rich flavors and traditions of authentic African cuisine to every meal we serve. Our goal is to provide delicious, freshly prepared dishes made with quality ingredients, traditional recipes, and a passion for great food.
+                        </p>
+                        <p>
+                            We offer a complete dining experience with dine-in and takeaway services, convenient home and office food delivery, online ordering, table reservations, and professional catering services for all types of occasions, including weddings, birthdays, corporate events, parties, funerals, and special celebrations.
+                        </p>
+                    </div>
+                    <div class="content-text">
+                        <p>
+                            Whether you are enjoying a meal with family, hosting an event, or looking for reliable catering, we are committed to delivering exceptional taste, quality service, and a memorable food experience.
+                        </p>
+                        <p>
+                            We proudly serve customers across Uyo, Oron, Eket, Abuja, Port Harcourt, and Lagos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3>🌿 Authenticity</h3>
+                        <p>We honor traditional African recipes and cooking methods, using time-honored techniques passed down through generations.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>🤝 Community</h3>
+                        <p>Building meaningful connections between our guests, staff, and suppliers. We're more than a restaurant—we're a gathering place.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>✨ Excellence</h3>
+                        <p>We commit to the highest standards in everything we do, from sourcing ingredients to delivering personalized service.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Our Team</h2>
+                <p style="color: var(--gray-text); margin-bottom: 2rem;">Meet the passionate individuals behind G & M</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Founder & CEO</h3>
+                        <p class="role">Visionary Leader</p>
+                        <p>With over 15 years of experience in the restaurant industry, our founder brings a deep appreciation for African culture and culinary excellence to every aspect of our business.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Head Chef</h3>
+                        <p class="role">Culinary Director</p>
+                        <p>A master of African cuisine with training from across the continent, our head chef creates innovative dishes while maintaining authentic flavors and traditions.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Operations Manager</h3>
+                        <p class="role">Behind the Scenes Leader</p>
+                        <p>Ensuring seamless operations and exceptional guest experiences, our operations manager brings meticulous attention to detail and dedication to service excellence.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Guest Relations</h3>
+                        <p class="role">Hospitality Specialist</p>
+                        <p>Our guest relations team is passionate about making sure every visitor feels welcomed, valued, and part of the G & M family.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Why Choose G & M?</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p>
+                            <strong>Authentic Experience:</strong> Every ingredient, every technique, every presentation is carefully considered to deliver an authentic African dining experience.
+                        </p>
+                        <p>
+                            <strong>Quality First:</strong> We source only the finest ingredients from trusted suppliers who share our commitment to excellence.
+                        </p>
+                        <p>
+                            <strong>Cultural Celebration:</strong> Our restaurant is designed to immerse you in African culture through food, ambiance, and warm hospitality.
+                        </p>
+                    </div>
+                    <div class="content-text">
+                        <p>
+                            <strong>Expert Preparation:</strong> Our skilled chefs have the knowledge and passion to bring out the best in every dish.
+                        </p>
+                        <p>
+                            <strong>Community Focused:</strong> We're invested in supporting local businesses and giving back to the communities we serve.
+                        </p>
+                        <p>
+                            <strong>Memorable Moments:</strong> From casual dining to special celebrations, we create unforgettable experiences for every occasion.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h3>Experience African Cuisine Like Never Before</h3>
+                <p style="color: var(--gray-text); margin-bottom: 2rem;">Join us for an authentic culinary journey through Africa's diverse flavors</p>
+                <a href="index.html#menu" class="cta-button">Explore Our Menu</a>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-brand">
+                <span class="logo-mark">
+                    <img src="assets/logo.jpeg" alt="G & M African logo" />
+                </span>
+                <span>G & M African</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <a href="tel:+2348000000001">📞 +234 800 000 0001</a>
+                    <a href="tel:+2348000000002">📞 +234 800 000 0002</a>
+                    <a href="mailto:info@gmandmafrican.com">✉️ info@gmandmafrican.com</a>
+                </div>
+                <div class="social-links" aria-label="Social media links">
+                    <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2024 G & M African Restaurant Venture. All rights reserved. | Bringing Africa to Your Table</p>
+        </footer>
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.querySelector('.menu-toggle');
+        if (!navLinks || !toggle) return;
+        const isOpen = navLinks.classList.toggle('open');
+        toggle.classList.toggle('active', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      document.addEventListener('click', (event) => {
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.querySelector('.menu-toggle');
+        if (!navLinks || !toggle) return;
+        const clickedInsideNav = navLinks.contains(event.target);
+        const clickedToggle = toggle.contains(event.target);
+        if (window.innerWidth <= 768 && !clickedInsideNav && !clickedToggle) {
+          navLinks.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.querySelectorAll('.nav-links a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.menu-toggle');
+            navLinks?.classList.remove('open');
+            toggle?.classList.remove('active');
+            toggle?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    </script>
+</html>
