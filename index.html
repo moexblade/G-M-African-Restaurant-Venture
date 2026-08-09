@@ -42,8 +42,6 @@
       overflow-x: hidden;
     }
 
-    body.no-scroll { overflow: hidden; }
-
     header {
       background: linear-gradient(135deg, rgba(13, 13, 13, 0.96) 0%, rgba(20, 20, 20, 0.9) 100%);
       backdrop-filter: blur(10px);
@@ -144,36 +142,6 @@
       background: rgba(212, 175, 55, 0.12);
       color: var(--gold);
     }
-
-    .cart-btn {
-      background: var(--gold);
-      color: var(--black);
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      cursor: pointer;
-      position: relative;
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.24);
-      transition: transform var(--ease), box-shadow var(--ease);
-    }
-
-    .cart-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(212, 175, 55, 0.33);
-    }
-
-    .cart-badge {
-      background: #e74c3c;
-      color: #fff;
-      border-radius: 999px;
-      padding: 2px 8px;
-      font-size: 0.78rem;
-      margin-left: 5px;
-      display: inline-block;
-    }
-
-    .cart-badge.bump { animation: bump 350ms ease; }
 
     .hero {
       background:
@@ -298,17 +266,130 @@
       letter-spacing: 0.5px;
     }
 
-    .branch-picker { text-align: center; margin-bottom: 2rem; }
+    .branch-showcase {
+      margin-bottom: 2rem;
+      background: linear-gradient(140deg, rgba(23, 19, 15, 0.95) 0%, rgba(14, 12, 9, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 18px;
+      padding: 1.15rem;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
 
-    .branch-picker select {
-      background: var(--dark-card);
+    .branch-showcase::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.14) 0%, transparent 48%, rgba(193, 102, 47, 0.12) 100%);
+      pointer-events: none;
+    }
+
+    .branch-showcase-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 0.95rem;
+    }
+
+    .branch-showcase-badge {
+      display: inline-block;
+      margin-bottom: 0.45rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
       color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.8rem 1rem;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      width: min(100%, 360px);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .branch-showcase h3 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .branch-showcase p {
+      color: var(--gray-text);
+      font-size: 0.92rem;
+    }
+
+    .branch-phones {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 0.95rem;
+    }
+
+    .branch-phones a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.42rem 0.78rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--gold-hover);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: transform var(--ease), border-color var(--ease), background-color var(--ease), color var(--ease);
+    }
+
+    .branch-phones a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.5);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+    }
+
+    .branch-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.7rem;
+    }
+
+    .branch-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.8rem;
+      text-align: center;
+      transition: transform var(--ease), border-color var(--ease), background-color var(--ease);
+    }
+
+    .branch-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.42);
+      background: rgba(212, 175, 55, 0.11);
+    }
+
+    .branch-name {
+      display: block;
+      color: var(--light-text);
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      font-size: 0.96rem;
+    }
+
+    .branch-phone {
+      color: var(--gold-hover);
+      text-decoration: none;
+      font-size: 0.86rem;
+      letter-spacing: 0.2px;
+    }
+
+    .branch-phone:hover {
+      color: var(--gold);
     }
 
     .menu-intro {
@@ -713,137 +794,6 @@
     }
     .card-price { font-size: 1.08rem; font-weight: 700; margin: 0.5rem 0; color: #fff; }
 
-    .add-btn {
-      width: 100%;
-      background: transparent;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.64rem;
-      font-weight: 700;
-      cursor: pointer;
-      border-radius: 999px;
-      transition: background-color var(--ease), color var(--ease), transform var(--ease);
-    }
-
-    .add-btn:hover {
-      background: var(--gold);
-      color: var(--black);
-      transform: translateY(-1px);
-    }
-
-    .add-btn-sm {
-      width: auto;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.82rem;
-      flex-shrink: 0;
-    }
-
-    /* Sliding Cart Drawer */
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(380px, 100vw);
-      height: 100%;
-      background: #141414;
-      border-left: 1px solid var(--gold);
-      z-index: 2000;
-      transition: transform var(--ease);
-      transform: translateX(100%);
-      padding: 1.3rem;
-      display: flex;
-      flex-direction: column;
-      box-shadow: -12px 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .cart-drawer.open { transform: translateX(0); }
-
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      padding-bottom: 1rem;
-    }
-
-    .close-cart {
-      background: none;
-      border: none;
-      color: var(--light-text);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .cart-items { flex-grow: 1; overflow-y: auto; margin: 1rem 0; }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #222;
-      padding-bottom: 0.5rem;
-      gap: 0.6rem;
-    }
-
-    .cart-footer { border-top: 1px solid #333; padding-top: 1rem; }
-
-    /* Modal Form */
-    .modal {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 3000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: opacity var(--ease), visibility var(--ease);
-      padding: 1rem;
-    }
-
-    .modal.open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: var(--dark-card);
-      border: 1px solid rgba(212, 175, 55, 0.72);
-      padding: 1.5rem;
-      width: 100%;
-      max-width: 460px;
-      border-radius: var(--radius);
-      box-shadow: var(--soft-shadow);
-      transform: translateY(8px);
-      transition: transform var(--ease);
-    }
-
-    .modal.open .modal-content { transform: translateY(0); }
-
-    .modal input,
-    .modal textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0 1rem;
-      background: var(--black);
-      border: 1px solid #333;
-      color: var(--light-text);
-      border-radius: 9px;
-    }
-
-    .modal input:focus,
-    .modal textarea:focus,
-    .branch-picker select:focus {
-      outline: 2px solid rgba(212, 175, 55, 0.65);
-      outline-offset: 1px;
-    }
-
     footer {
       background: #050505;
       text-align: center;
@@ -1004,11 +954,6 @@
         font-size: 1rem;
       }
 
-      .cart-btn {
-        font-size: 0.95rem;
-        padding: 0.58rem 0.95rem;
-      }
-
       .section { padding: 2.6rem 4%; }
       .hero { min-height: 56vh; }
       .card img { height: 170px; }
@@ -1024,7 +969,6 @@
       .menu-item-card img {
         height: 260px;
       }
-      .modal-content { padding: 1.2rem; }
     }
 
     @media (max-width: 480px) {
@@ -1032,11 +976,7 @@
       .hero p { margin-bottom: 1.2rem; }
       .hero-link { width: min(100%, 220px); text-align: center; }
       .grid { grid-template-columns: 1fr; }
-      .cart-drawer { padding: 1rem; }
-      .branch-picker label {
-        display: block;
-        margin: 0 0 0.6rem;
-      }
+      .branch-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1063,7 +1003,6 @@
                 <a href="#menu-section">Menu</a>
                 <a href="#services-section">Services</a>
                 <a href="contact.html">Contact</a>
-                <a href="reservation.html">Reservations</a>
             </div>
             <button class="menu-toggle" type="button" onclick="toggleMenu()"
                 aria-label="Toggle navigation" aria-expanded="false">
@@ -1071,8 +1010,6 @@
                 <span></span>
                 <span></span>
             </button>
-            <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span
-                    class="cart-badge" id="cartBadge">0</span></button>
         </header>
 
         <section class="hero">
@@ -1083,18 +1020,36 @@
         </section>
 
         <section class="section" id="menu-section">
-            <div class="branch-picker">
-                <label style="margin-right: 10px; font-weight: bold;">Select
-                    Your Branch:</label>
-                <select id="branchSelect">
-                    <option value="Lagos (+2348000000001)">Lagos Branch</option>
-                    <option value="Abuja (+2348000000002)">Abuja Branch</option>
-                    <option value="Port Harcourt (+2348000000003)">Port Harcourt
-                        Branch</option>
-                    <option value="Uyo (+2348000000004)">Uyo Branch</option>
-                    <option value="Eket (+2348000000005)">Eket Branch</option>
-                    <option value="Oron (+2348000000006)">Oron Branch</option>
-                </select>
+            <div class="branch-showcase">
+              <div class="branch-showcase-header">
+                <span class="branch-showcase-badge">Our Branches</span>
+                <h3>Find Your Nearest Location</h3>
+                <p>Serving fresh African cuisine across major cities.</p>
+              </div>
+              <div class="branch-phones" aria-label="Main branch phone numbers">
+                <a href="tel:+2347055409162">+234 705 540 9162</a>
+                <a href="tel:+2347026841247">+234 702 684 1247</a>
+              </div>
+              <div class="branch-grid">
+                <div class="branch-card">
+                  <span class="branch-name">Lagos</span>
+                </div>
+                <div class="branch-card">
+                  <span class="branch-name">Abuja</span>
+                </div>
+                <div class="branch-card">
+                  <span class="branch-name">Port Harcourt</span>
+                </div>
+                <div class="branch-card">
+                  <span class="branch-name">Uyo</span>
+                </div>
+                <div class="branch-card">
+                  <span class="branch-name">Eket</span>
+                </div>
+                <div class="branch-card">
+                  <span class="branch-name">Oron</span>
+                </div>
+              </div>
             </div>
 
             <h2 class="section-title">Our Menu</h2>
@@ -1185,47 +1140,9 @@
                     <div class="service-item">Catering Services</div>
                     <div class="service-item">Outdoor Catering</div>
                     <div class="service-item">Online Orders</div>
-                    <div class="service-item">Table Reservations</div>
                 </div>
             </div>
         </section>
-
-        <!-- Cart Drawer -->
-        <div class="cart-drawer" id="cartDrawer">
-            <div class="cart-header">
-                <h3 style="color: var(--gold);">Your Order</h3>
-                <button class="close-cart"
-                    onclick="toggleCart()">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems"></div>
-            <div class="cart-footer">
-                <h4>Total: ₦<span id="cartTotal">0</span></h4>
-                <button class="add-btn"
-                    style="background: var(--gold); color: #000; margin-top: 1rem;"
-                    onclick="openCheckout()">Proceed to Checkout</button>
-            </div>
-        </div>
-
-        <!-- Checkout Modal -->
-        <div class="modal" id="checkoutModal">
-            <div class="modal-content">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Delivery
-                    Details</h3>
-                <input type="text" id="custName" placeholder="Full Name"
-                    required>
-                <input type="tel" id="custPhone" placeholder="Phone Number"
-                    required>
-                <textarea id="custAddress"
-                    placeholder="Delivery Address / Special Instructions"
-                    rows="3" required></textarea>
-                <button class="add-btn"
-                    style="background: var(--gold); color: #000;"
-                    onclick="submitOrder()">Submit via WhatsApp</button>
-                <button class="add-btn"
-                    style="margin-top: 0.5rem; border: none;"
-                    onclick="closeCheckout()">Cancel</button>
-            </div>
-        </div>
 
         <footer>
             <div class="footer-brand">
@@ -1236,9 +1153,8 @@
             </div>
             <div class="footer-content">
                 <div class="footer-contact">
-                    <a href="tel:+2348000000001">📞 +2347055409162,
-                    </a>
-                    <a href="tel:+2348000000002">📞 +2347026841247</a>
+                    <a href="tel:+234 705 540 9162">📞 +234 705 540 9162</a>
+                    <a href="tel:+234 702 684 1247">📞 +234 702 684 1247</a>
                     <a href="mailto:gmafricanrestaurant@gmail.com">✉️
                         gmafricanrestaurant@gmail.com</a>
                 </div>
@@ -1429,8 +1345,6 @@
       }
     ];
 
-    let cart = [];
-
     const categoryIcons = {
       rice: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M5 12c0 4 3 7 7 7s7-3 7-7"/><path d="M8 12c0-1.5.5-3 2-5"/><path d="M14 12c0-2 .5-3.5 2-6"/></svg>',
       soup: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M4 11c0 4.5 3.5 8 8 8s8-3.5 8-8"/><path d="M9 4c-1 1-1 2 0 3"/><path d="M13 4c-1 1-1 2 0 3"/></svg>',
@@ -1473,7 +1387,6 @@
                   <p>${item.desc}</p>
                   <div class="menu-item-meta">
                     <span class="menu-item-price">₦${item.price.toLocaleString()}</span>
-                    <button class="add-btn add-btn-sm" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})">Add to Cart</button>
                   </div>
                 </div>
               </div>
@@ -1511,7 +1424,6 @@
                     <span class="label">Featured</span>
                     <span class="name">${featured.name} &middot; ₦${featured.price.toLocaleString()}</span>
                   </span>
-                  <button class="add-btn add-btn-sm" onclick="addToCart('${featured.name.replace(/'/g, "\\'")}', ${featured.price})">Add</button>
                 </span>
               </div>
             </div>
@@ -1522,124 +1434,17 @@
       }).join('');
     }
 
-    function addToCart(name, price) {
-      const existing = cart.find(item => item.name === name);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ name, price, qty: 1 });
-      }
-
-      const badge = document.getElementById('cartBadge');
-      badge.classList.remove('bump');
-      void badge.offsetWidth;
-      badge.classList.add('bump');
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      
-      document.getElementById('cartBadge').innerText = totalCount;
-      document.getElementById('cartTotal').innerText = totalPrice.toLocaleString();
-
-      const itemsContainer = document.getElementById('cartItems');
-      if (cart.length === 0) {
-        itemsContainer.innerHTML = '<p style="color: var(--gray-text);">Your cart is empty.</p>';
-      } else {
-        itemsContainer.innerHTML = cart.map(item => `
-          <div class="cart-item">
-            <div>
-              <div style="font-weight: bold;">${item.name}</div>
-              <div style="color: var(--gray-text); font-size: 0.9rem;">₦${item.price.toLocaleString()} x ${item.qty}</div>
-            </div>
-            <div>₦${(item.price * item.qty).toLocaleString()}</div>
-          </div>
-        `).join('');
-      }
-    }
-
-    function syncBodyScrollLock() {
-      const isCartOpen = document.getElementById('cartDrawer').classList.contains('open');
-      const isModalOpen = document.getElementById('checkoutModal').classList.contains('open');
-      document.body.classList.toggle('no-scroll', isCartOpen || isModalOpen);
-    }
-
-    function toggleCart(forceState) {
-      const drawer = document.getElementById('cartDrawer');
-      const isOpen = drawer.classList.contains('open');
-      const shouldOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
-      drawer.classList.toggle('open', shouldOpen);
-      syncBodyScrollLock();
-    }
-
-    function openCheckout() {
-      if (cart.length === 0) return alert("Please add items to your cart first.");
-      document.getElementById('checkoutModal').classList.add('open');
-      toggleCart(false);
-      syncBodyScrollLock();
-    }
-
-    function closeCheckout() {
-      document.getElementById('checkoutModal').classList.remove('open');
-      syncBodyScrollLock();
-    }
-
-function submitOrder() {
-  const name = document.getElementById('custName').value.trim();
-  const phone = document.getElementById('custPhone').value.trim();
-  const address = document.getElementById('custAddress').value.trim();
-  const branch = document.getElementById('branchSelect').value;
-
-  if (!name || !phone || !address) {
-    return alert("Please fill out all contact fields.");
-  }
-
-  // Build itemized summary
-  const itemDetails = cart.map(i => `• ${i.name} (x${i.qty})`).join('\n');
-  const total = document.getElementById('cartTotal').innerText;
-
-  // Raw message string
-  const rawMessage = `*NEW ORDER - G & M African Restaurant Venture*\n\n` +
-                     `*Branch:* ${branch}\n` +
-                     `*Customer:* ${name}\n` +
-                     `*Phone:* ${phone}\n` +
-                     `*Address:* ${address}\n\n` +
-                     `*Items Ordered:*\n${itemDetails}\n\n` +
-                     `*Total Price:* ₦${total}`;
-
-  // Encode the message correctly for URLs
-  const encodedMessage = encodeURIComponent(rawMessage);
-
-  // Replace with your real target WhatsApp phone number (e.g., 2348012345678)
-  const targetPhoneNumber = "2347026841247"; 
-
-  // Redirect to WhatsApp API
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhoneNumber}&text=${encodedMessage}`;
-  
-  window.open(whatsappUrl, '_blank');
-}
-
-    document.getElementById('checkoutModal').addEventListener('click', (event) => {
-      if (event.target.id === 'checkoutModal') {
-        closeCheckout();
-      }
-    });
-
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
-        if (document.getElementById('checkoutModal').classList.contains('open')) {
-          closeCheckout();
-        }
-        if (document.getElementById('cartDrawer').classList.contains('open')) {
-          toggleCart(false);
-        }
+        const navLinks = document.getElementById('navLinks');
+        const toggle = document.querySelector('.menu-toggle');
+        navLinks?.classList.remove('open');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
       }
     });
 
     renderMenu();
-    updateCartUI();
   </script>
     </body>
 </html>

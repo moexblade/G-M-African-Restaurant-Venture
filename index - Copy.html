@@ -222,6 +222,73 @@
 
     .section { padding: 3.2rem 5%; }
 
+    .services-section {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 1.6rem;
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(23, 19, 15, 0.98) 0%, rgba(13, 11, 8, 0.98) 100%);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.14) 0%, transparent 45%, rgba(212, 175, 55, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .services-section h3 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      margin-bottom: 0.9rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-section p {
+      text-align: center;
+      color: var(--gray-text);
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-item {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      border-radius: 12px;
+      padding: 1rem 0.95rem;
+      color: var(--light-text);
+      font-size: 0.95rem;
+      text-align: center;
+      font-weight: 600;
+      transition: transform var(--ease), border-color var(--ease), background-color var(--ease), box-shadow var(--ease);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .service-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.11);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
     .section-title {
       text-align: center;
       color: var(--gold);
@@ -242,6 +309,95 @@
       border-radius: 10px;
       cursor: pointer;
       width: min(100%, 360px);
+    }
+
+    .menu-intro {
+      background: linear-gradient(135deg, rgba(23, 19, 15, 0.95) 0%, rgba(12, 10, 8, 0.96) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 20px;
+      padding: 1.35rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.13) 0%, transparent 40%, rgba(212, 175, 55, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .menu-intro-header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+
+    .menu-intro-badge {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .menu-intro h3 {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .menu-intro p {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .menu-intro-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .menu-intro-group {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 0.95rem;
+    }
+
+    .menu-intro-group h4 {
+      color: var(--gold-hover);
+      font-size: 0.93rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-intro-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .menu-intro-group li {
+      color: var(--light-text);
+      font-size: 0.92rem;
+      line-height: 1.45;
     }
 
     .grid {
@@ -827,11 +983,25 @@
 
       .nav-links.open {
         display: flex;
+        position: fixed;
+        inset: 76px 0 auto 0;
+        width: 100%;
+        height: calc(100vh - 76px);
+        padding: 1.25rem 4%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        z-index: 999;
+        justify-content: flex-start;
+        gap: 0.8rem;
+        overflow-y: auto;
       }
 
       .nav-links a {
         width: 100%;
-        padding: 0.7rem 0.9rem;
+        padding: 0.9rem 1rem;
+        border: 1px solid rgba(212, 175, 55, 0.16);
+        border-radius: 12px;
+        font-size: 1rem;
       }
 
       .cart-btn {
@@ -886,14 +1056,16 @@
                 <span class="logo-mark">
                     <img src="assets/logo.jpeg" alt="G & M African logo" />
                 </span>
-                <span>G & M African</span>
+                <span>G & M African Restaurant Venture</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="about.html">About Us</a>
                 <a href="#menu-section">Menu</a>
+                <a href="#services-section">Services</a>
                 <a href="contact.html">Contact</a>
             </div>
-            <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
+            <button class="menu-toggle" type="button" onclick="toggleMenu()"
+                aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -925,7 +1097,96 @@
             </div>
 
             <h2 class="section-title">Our Menu</h2>
+            <div class="menu-intro">
+                <div class="menu-intro-header">
+                    <span class="menu-intro-badge">Chef's Selection</span>
+                    <h3>Signature Menu Highlights</h3>
+                    <p>Authentic flavors, rich spices, and comfort-food favorites served fresh every day.</p>
+                </div>
+                <div class="menu-intro-grid">
+                    <div class="menu-intro-group">
+                        <h4>🔥 Grilled & Barbecue</h4>
+                        <ul>
+                        <li>Barbecue Fish - ₦6,500</li>
+                        <li>Grilled Fish - ₦6,000</li>
+                        <li>Barbecue Chicken - ₦5,000</li>
+                        <li>Grilled Chicken - ₦4,500</li>
+                        <li>Barbecue Goat Meat - ₦7,000</li>
+                        <li>Grilled Meat - ₦6,500</li>
+                        <li>Barbecue Beef - ₦6,000</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🍚 Rice & Sides</h4>
+                        <ul>
+                        <li>Jollof Rice - ₦2,500</li>
+                        <li>Fried Rice - ₦2,800</li>
+                        <li>White Rice - ₦1,800</li>
+                        <li>Coconut Rice - ₦2,500</li>
+                        <li>Rice &amp; Stew - ₦3,000</li>
+                        <li>Plantain - ₦800</li>
+                        <li>Chips - ₦800</li>
+                        <li>Coleslaw - ₦1,000</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🌶️ Pepper Soup</h4>
+                        <ul>
+                        <li>Fish Pepper Soup - ₦3,800</li>
+                        <li>Goat Meat Pepper Soup - ₦4,500</li>
+                        <li>Cow Meat Pepper Soup - ₦4,000</li>
+                        <li>Chicken Pepper Soup - ₦3,500</li>
+                        <li>Assorted Meat Pepper Soup - ₦4,800</li>
+                        <li>Catfish Pepper Soup - ₦4,200</li>
+                        <li>Seafood Pepper Soup - ₦4,500</li>
+                        <li>Mixed Pepper Soup - ₦4,800</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🥘 Nigerian Soups</h4>
+                        <ul>
+                        <li>Afang Soup - ₦3,500</li>
+                        <li>Atama Soup - ₦3,500</li>
+                        <li>Edikang Ikong Soup - ₦3,500</li>
+                        <li>Editan Soup - ₦3,500</li>
+                        <li>Afere Soup - ₦3,500</li>
+                        <li>Okro Soup - ₦3,500</li>
+                        <li>Egusi Soup - ₦3,500</li>
+                        <li>Vegetable Soup - ₦3,000</li>
+                        <li>White Soup (Afang-style/Native) - ₦3,800</li>
+                        <li>Fisherman Soup - ₦4,500</li>
+                        </ul>
+                    </div>
+                    <div class="menu-intro-group">
+                        <h4>🐟 Fish Specials</h4>
+                        <ul>
+                        <li>Fresh Fish - ₦5,500</li>
+                        <li>Catfish - ₦5,500</li>
+                        <li>Tilapia - ₦5,000</li>
+                        <li>Croaker Fish - ₦5,500</li>
+                        <li>Fish &amp; Chips - ₦4,500</li>
+                        <li>Grilled Fish &amp; Rice - ₦6,500</li>
+                        <li>Barbecue Fish &amp; Plantain - ₦6,800</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="menu-content" id="menuContent"></div>
+
+            <div class="services-section" id="services-section">
+                <h3>Our Services</h3>
+                <p>Flexible dining and event experiences designed around your
+                    comfort.</p>
+                <div class="services-grid">
+                    <div class="service-item">Dine-in Services</div>
+                    <div class="service-item">Takeaway</div>
+                    <div class="service-item">Home &amp; Office Delivery</div>
+                    <div class="service-item">Catering Services</div>
+                    <div class="service-item">Outdoor Catering</div>
+                    <div class="service-item">Online Orders</div>
+                    <div class="service-item">Table Reservations</div>
+                </div>
+            </div>
         </section>
 
         <!-- Cart Drawer -->
@@ -974,19 +1235,29 @@
             </div>
             <div class="footer-content">
                 <div class="footer-contact">
-                    <a href="tel:+2348000000001">📞 +234 800 000 0001</a>
-                    <a href="tel:+2348000000002">📞 +234 800 000 0002</a>
-                    <a href="mailto:info@gmandmafrican.com">✉️ info@gmandmafrican.com</a>
+                    <a href="tel:+2348000000001">📞 +2347055409162,
+                    </a>
+                    <a href="tel:+2348000000002">📞 +2347026841247</a>
+                    <a href="mailto:gmafricanrestaurant@gmail.com">✉️
+                        gmafricanrestaurant@gmail.com</a>
                 </div>
                 <div class="social-links" aria-label="Social media links">
-                    <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z"/></svg>
+                    <a href="https://facebook.com" target="_blank"
+                        rel="noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path
+                                d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H6v4h4v8h4v-8h3l1-4h-4z" /></svg>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                    <a href="https://instagram.com" target="_blank"
+                        rel="noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18"
+                                height="18" rx="4" /><circle cx="12" cy="12"
+                                r="4" /><circle cx="17.5" cy="6.5"
+                                r="1" /></svg>
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
-                        <svg viewBox="0 0 24 24"><path d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z"/></svg>
+                    <a href="https://x.com" target="_blank" rel="noreferrer"
+                        aria-label="X">
+                        <svg viewBox="0 0 24 24"><path
+                                d="M18 5h-2l-4 5-4-5H4l6 7-6 7h2l5-6 5 6h4l-6-7 6-7Z" /></svg>
                     </a>
                 </div>
             </div>
@@ -1033,79 +1304,83 @@
 
     const menuSections = [
       {
-        title: 'Rice Dishes',
-        intro: 'Comforting staples with bold seasoning and rich Nigerian flavors.',
+        title: 'Grilled & Barbecue',
+        intro: 'Smoky grilled favorites and bold barbecue classics.',
         items: [
-          { name: 'Jollof Rice', price: 4500, desc: 'Tomato-rich rice with savory seasoning.', image: 'https://images.food52.com/wOa5GeKf0FKYEUmJRZ7gtNjVi68=/583d2633-65c0-43d6-9b52-cba0c8fa1399--2019-1210_nigerian-jollof-rice_3x2_rocky-luten_006.jpg' },
-          { name: 'Fried Rice', price: 4800, desc: 'A colorful mix of rice, veggies, and spice.', image: 'https://www.cubesnjuliennes.com/wp-content/uploads/2024/02/Best-Shrimp-Fried-Rice-Recipe.jpg' },
-          { name: 'White Rice & Stew', price: 5000, desc: 'Steamed rice served with hearty stew.', image: 'https://naijastickitchen.com/wp-content/uploads/2024/01/Buka-Stew-with-White-Rice-served-with-Plantain.jpeg' },
-          { name: 'Ofada Rice', price: 5200, desc: 'Traditional local rice with authentic taste.', image: 'https://www.afropots.com/wp-content/uploads/2025/01/Ofada-Rice.jpg' },
-          { name: 'Coconut Rice', price: 5000, desc: 'Fragrant rice simmered in coconut milk.', image: 'https://www.kitchensanctuary.com/wp-content/uploads/2024/08/Coconut-Rice-Pan-Method-tall-Square-FS.jpg' },
-          { name: 'Native Rice', price: 5300, desc: 'Local rice cooked with palm oil and vegetables.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5eWDFplh-uULOtUCUmTknHujJhn2ATqezI6mLBjpSOZ6X0hVOwogqcs&s=10' }
+          { name: 'Barbecue Fish', price: 6500, desc: 'Char-grilled fish glazed with house barbecue spices.', image: "https://www.saveur.com/uploads/2019/09/16-220816-PAMU-PESCADO_EMBARAZADO-018_3.jpg?format=auto&optimize=high&width=1440" },
+          { name: 'Grilled Fish', price: 6000, desc: 'Freshly grilled fish served hot with signature seasoning.', image: 'https://api.photon.aremedia.net.au/wp-content/uploads/sites/10/Gt/2020/04/14/18491/web_grilledfish.jpg?fit=600%2C500&format=auto' },
+          { name: 'Barbecue Chicken', price: 5000, desc: 'Tender chicken coated in rich barbecue flavor.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRrMzTWoMSWLSoFQE7iFsIpWlDFRZ6OeUbB3EV4dZF9pKxBHcI-mVqb8I&s=10" },
+          { name: 'Grilled Chicken', price: 4500, desc: 'Well-seasoned grilled chicken with a smoky finish.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzp_vECs3TehCCPYQ52mbJeTI1jJTnHklKSo9bR1kHToBL4vsrEmX4AAH5&s=10' },
+          { name: 'Barbecue Goat Meat', price: 7000, desc: 'Goat meat grilled and glazed in spicy barbecue sauce.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeKPIDg71S45a4XG-4y9XZbEN09Gh4yhnUiX7FZ3MEhjY0eGrrvuMgDfo&s=10" },
+          { name: 'Grilled Meat', price: 6500, desc: 'Mixed grilled meat portions with Nigerian spice blend.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibFD3gy0tF5EaAxxg-ew8LAZamjzM_E8IRbzBMgs0YBaty3-X5Ok7Y9s&s=10" },
+          { name: 'Barbecue Beef', price: 6000, desc: 'Juicy beef grilled over fire with barbecue seasoning.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5liJvszqkYD9ycT35C0s29h_KJk4B93yB-A_nbqCC1BocnFacsvejXY&s=10" }
         ]
       },
       {
-        title: 'Soups & Swallows',
-        intro: 'Signature soups paired with warm swallows for a satisfying meal.',
-        groups: [
-          {
-            label: 'Soups',
-            items: [
-              { name: 'Egusi Soup', price: 6500, desc: 'Ground melon soup with rich seasoning.', image: 'https://weeatatlast.com/wp-content/uploads/2024/01/egusi-soup-with-chicken-recipe-500x500.jpg' },
-              { name: 'Efo Riro', price: 6200, desc: 'Spinach soup with assorted meats and fish.', image: 'https://kikifoodies.com/wp-content/uploads/2024/10/photo-output-9-scaled.jpeg' },
-              { name: 'Okra Soup', price: 6300, desc: 'Silky okra soup with assorted meat and fish.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXlrRmaZQGoZlP6KzcwsIiTbzNB_thCTCNy6UehYHqe73zbPcbRHgsZP5&s=10' },
-              { name: 'Ogbono Soup', price: 6400, desc: 'Hearty draw soup made from ground ogbono seeds.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVmCuwixSi61u4LUSiiApzps_2dlEJ3gcVWCKruYeoAEyuhhAyDlx_Fs&s=10' },
-              { name: 'Afang Soup', price: 6700, desc: 'Rich vegetable soup, a Calabar delicacy.', image: 'https://eatwellabi.com/wp-content/uploads/2023/01/Afang-soup-18.jpg' },
-              { name: 'Bitterleaf Soup', price: 6300, desc: 'Traditional soup made with washed bitterleaf.', image: 'https://empressrestaurants.co.uk/_next/image?url=https%3A%2F%2Fapi.empressrestaurants.co.uk%2Fuploads%2Fproducts%2F80345abb-815c-420c-bc7a-5bf455c774ce.png&w=3840&q=75' },
-              { name: 'Vegetable Soup', price: 6100, desc: 'Garden vegetables simmered with assorted meats.', image: 'https://cdn.loveandlemons.com/wp-content/uploads/2019/12/vegetable-soup.jpg' },
-              { name: 'Fisherman Soup', price: 7500, desc: 'A hearty soup loaded with fresh catch and spices.', image: 'https://lowcarbafrica.com/wp-content/uploads/2024/06/Fisherman-Soup-3.jpg' },
-              { name: 'Banga Soup', price: 6600, desc: 'Palm nut soup with deep, smoky flavor.', image: 'https://i.pinimg.com/736x/49/51/0b/49510b512116d6560beaab22b9a34766.jpg' },
-              { name: 'Groundnut Soup', price: 6200, desc: 'Creamy soup made from ground peanuts.', image: 'https://www.africanbites.com/wp-content/uploads/2024/07/Groundnut-Soup-From-Scratch-3-scaled.jpeg' }
-            ]
-          },
-          {
-            label: 'Swallows',
-            items: [
-              { name: 'Pounded Yam', price: 1800, desc: 'Smooth and fluffy swallow served hot.', image: 'https://travelandmunchies.com/wp-content/uploads/2025/03/IMG_9666-scaled.jpg' },
-              { name: 'Fufu', price: 1700, desc: 'Soft pounded cassava swallow.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi39T1KaQ-Mc-rDFMVVVbxoQxlcqWqFAb3eIXuECifsOFWQhAEAK84gV4x&s=10' },
-              { name: 'Eba', price: 1600, desc: 'Smooth swallow made from garri.', image: 'https://kscuisine.com/wp-content/uploads/2019/07/eba-swallow.jpg' },
-              { name: 'Amala', price: 1700, desc: 'Soft, dark swallow made from yam flour.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6kMQukIqsTgavQVlaTuPCK6VDwldhnNuVpBA2oNpkZsc3LvjETQFQJI&s=10' },
-              { name: 'Wheat', price: 1800, desc: 'Light, fibre-rich swallow made from wheat flour.', image: 'https://cdn.businessday.ng/2023/04/Wheat-meal.jpg' },
-              { name: 'Garri', price: 1500, desc: 'Classic cassava swallow, soaked or swallowed.', image: 'https://assets.bonappetit.com/photos/60ef61ea1cd5ffae42c1d614/1:1/w_1687,h_1687,c_limit/Garri.jpg' }
-            ]
-          }
+        title: 'Pepper Soup',
+        intro: 'Warming pepper soups made with rich stock and native spices.',
+        items: [
+          { name: 'Fish Pepper Soup', price: 3800, desc: 'Light spicy broth with fish and aromatic herbs.', image: "https://www.preciouscore.com/wp-content/uploads/2024/05/Catfish-Pepper-Soup.jpg" },
+          { name: 'Goat Meat Pepper Soup', price: 4500, desc: 'Classic pepper soup with tender goat meat cuts.', image: "https://lowcarbafrica.com/wp-content/uploads/2020/11/Goat-Meat-Pepper-Soup-IG-1.jpg" },
+          { name: 'Cow Meat Pepper Soup', price: 4000, desc: 'Pepper soup prepared with well-seasoned cow meat.', image: "https://i.ytimg.com/vi/CBBj6ibfgSk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBnxNvxwo4h0nGu-B35VpmTNgIk3g" },
+          { name: 'Chicken Pepper Soup', price: 3500, desc: 'Hot and flavorful chicken pepper soup.', image: "https://lowcarbafrica.com/wp-content/uploads/2021/07/Chicken-Pepper-Soup-IG-1.jpg" },
+          { name: 'Assorted Meat Pepper Soup', price: 4800, desc: 'A hearty bowl with assorted meat selections.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeUju6tfCVihSLSlN3OV5WN6rS7zvEBwczcadd7jGhTg&s=10" },
+          { name: 'Catfish Pepper Soup', price: 4200, desc: 'Fresh catfish in a fragrant spicy broth.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgygpXthMe46TACgQ3AjZ2nPZ0JQ3evYqOfMjpJ5HMYw&s=10" },
+          { name: 'Seafood Pepper Soup', price: 4500, desc: 'A pepper soup loaded with seafood and herbs.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7DJzE1edZbY7IhOMItUMfIklopW1Z-_OaeCtK1huM9g&s=10" },
+          { name: 'Mixed Pepper Soup', price: 4800, desc: 'A mixed-protein pepper soup with bold taste.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTme5zwRMrNZypGvsaMsL6UzhpaGLXfE5rUQTxMrTI5NRFVkGI7_REvWVA&s=10" }
         ]
       },
       {
-        title: 'Proteins & Meat Options',
-        intro: 'Flavor-packed proteins, grilled, fried, or stewed to perfection.',
+        title: 'Fish Specials',
+        intro: 'Seafood highlights served grilled, fried, or paired with sides.',
         items: [
-          { name: 'Grilled Chicken', price: 5600, desc: 'Tender chicken with a smoky finish.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRrMzTWoMSWLSoFQE7iFsIpWlDFRZ6OeUbB3EV4dZF9pKxBHcI-mVqb8I&s=10' },
-          { name: 'Pepper Chicken', price: 5800, desc: 'Spicy chicken with a bold pepper glaze.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqYcY1qZ7azS5OaC9tCY_6yhxKhJGJP9CqrDdlOFIZPtoTOD6BdjQxr6I&s=10' },
-          { name: 'Fried Chicken', price: 5500, desc: 'Crispy fried chicken, golden and seasoned.', image: 'https://www.tasteofhome.com/wp-content/uploads/2025/05/Fried-Chicken_TOHJJ22_6445_DR-_02_03_11b.jpg' },
-          { name: 'Turkey', price: 6500, desc: 'Well-seasoned grilled turkey portions.', image: 'https://www.realsimple.com/thmb/f9TYHClKuVtPmQC53_tzvNmJHsU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smoky-maple-turkey-recipe-1121FOO-d0e29c69b3ae475dbfbccf5b5bb229d0.jpg' },
-          { name: 'Goat Meat', price: 7200, desc: 'Slow-cooked goat meat with rich spices.', image: 'https://thatgirlcookshealthy.com/wp-content/uploads/2023/04/Air-Fried-Goat-Meat-Bites-image.png' },
-          { name: 'Beef', price: 5000, desc: 'Tender beef cuts simmered in spiced sauce.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbQ_-sKCuRWjyeoKE958OjO9DS9mz8YKn_OstZXVxjAw&s=10' },
-          { name: 'Assorted Meat', price: 6800, desc: 'A mix of well-seasoned traditional cuts.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs_BVnrQB3yaNGyQMEJBk3mgQOlJGLYpab7PFuVd6dUQ&s=10' },
-          { name: 'Cow Tail', price: 6500, desc: 'Slow-braised cow tail, soft and flavorful.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKk2RYHI17yCxbtaYsxmO85-kiP4Pj430ztpqzBjLUBg&s=10' },
-          { name: 'Ponmo / Kpomo', price: 3000, desc: 'Chewy, well-seasoned cow skin.', image: 'https://i.ytimg.com/vi/_MUosCdKcpY/maxresdefault.jpg' },
-          { name: 'Shaki (Tripe)', price: 3200, desc: 'Tender cow tripe simmered in spices.', image: 'https://cdn.shopify.com/s/files/1/0807/4903/5848/files/Fresh_Shaki_meat_-_buy_at_Niyis.jpg?v=1775235065' },
-          { name: 'Grilled Fish', price: 6800, desc: 'Fresh fish served with herbs and pepper.', image: 'https://api.photon.aremedia.net.au/wp-content/uploads/sites/10/Gt/2020/04/14/18491/web_grilledfish.jpg?fit=600%2C500&format=auto' },
-          { name: 'Fried Fish', price: 6500, desc: 'Crispy fried fish, seasoned and golden.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi1QjEjTXKv9tc8Q0Zw5IqSKeB5PoCuX4IzgQe3k7u8HczkoGGG5P4Gx_U&s=10' },
-          { name: 'Stock Fish', price: 5800, desc: 'Dried fish simmered until tender and savory.', image: 'https://www.fromnorway.com/globalassets/recipes/stockfish/list-stockfish-paccheri-puttanesca.jpg' }
+          { name: 'Fresh Fish', price: 5500, desc: 'Fresh fish prepared to order with house spices.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_xaE_uVjX-TUCJYfpPPCP7kYuDSnTqcjfkAYLlBoMgtbCugX_n3fvOOT&s=10" },
+          { name: 'Catfish', price: 5500, desc: 'Well-seasoned catfish served hot and fresh.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1QytMn_K_QPk6Bx-Vn4l6BjTCtjVBpo_9DmZ5j6t2ig&s=10" },
+          { name: 'Tilapia', price: 5000, desc: 'Succulent tilapia seasoned and cooked to perfection.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO1cyWtIEii08SsZ5-No_5Hn9K7PZRBCwIVo-xHUbUws5hNeZlHqsmTaU&s=10" },
+          { name: 'Croaker Fish', price: 5500, desc: 'Tender croaker fish with savory spice rub.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCMucyTcAgnm5NtoWQIqFQv5jRffMcCRThttafgTT61akSLsyZUTfbQIjX&s=10" },
+          { name: 'Fish & Chips', price: 4500, desc: 'Crispy fish fillet paired with chips.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyzq4jwVkNouw06yBLnqYRxQURFaDOlo6z90sZrHBzZMCBuilIDrza2zeS&s=10" },
+          { name: 'Grilled Fish & Rice', price: 6500, desc: 'Grilled fish served with a side of rice.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd6FKfmEgZ9M4rzHtoO9O7bmmZrpMEDKsf9JZ9AwaxuCf2HeX-GD3L5H8&s=10" },
+          { name: 'Barbecue Fish & Plantain', price: 6800, desc: 'Barbecue fish paired with sweet fried plantain.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVH-OjWC8UrNxfb_ijL3H_OjjDTLMR1cUsbXJ67MR3_AaqKWa1_JKqMKY&s=10" }
         ]
       },
       {
-        title: 'Sides & Extras',
-        intro: 'Delicious add-ons that complete your meal beautifully.',
+        title: 'Rice & Sides',
+        intro: 'Everyday rice dishes and favorite side pairings.',
         items: [
-          { name: 'Fried / Boiled Plantain', price: 1800, desc: 'Fried or boiled plantain served warm.', image: 'https://gardeninthekitchen.com/wp-content/uploads/2024/06/fried-sweet-plantains_7497.jpg' },
-          { name: 'Moi Moi', price: 2200, desc: 'Steamed bean pudding with a soft texture.', image: 'https://www.africanbites.com/wp-content/uploads/2023/12/IMG_4707-scaled.jpg' },
-          { name: 'Akara (Beans Cake)', price: 1500, desc: 'Crispy fried bean cakes.', image: 'https://cdn.apartmenttherapy.info/image/upload/v1634332056/k/Photo/Recipes/2021-10-akara-reshoot/2021-10-12_ATK8157.jpg' },
-          { name: 'Yam Chips', price: 2000, desc: 'Crunchy fried yam chips with seasoning.', image: 'https://www.allrecipes.com/thmb/sJjrSLTGU5b0BhDXhiybT_ose6s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4578432-baked-yam-fries-with-dip-Melissa-Goff-4x3-1-dec7e76a7fe746babb3a0246dc672742.jpg' },
-          { name: 'Crispy Gizzard', price: 3500, desc: 'Peppered gizzard, fried until crisp.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfaUUj9tx3kNjG8-SExtTh22UEE3Owna0lplFkjpEPStYkgYEZP7j-oHi&s=10' },
-          { name: 'Coleslaw', price: 1800, desc: 'Fresh, creamy cabbage and carrot slaw.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLypHg30w7UxVDA01D2gmmRUruUul966G4cpsoRdatpD8fzRYdf1iLOEs&s=10' },
-          { name: 'Salad', price: 2000, desc: 'A crisp mix of fresh garden vegetables.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6TqVzwZ88GXIqZZizybPlfTdWhxB5Mrb9uP-A08-auQei34Z4y8cn7Os&s=10' }
+          { name: 'Jollof Rice', price: 2500, desc: 'Tomato-rich rice with savory seasoning.', image: 'https://images.food52.com/wOa5GeKf0FKYEUmJRZ7gtNjVi68=/583d2633-65c0-43d6-9b52-cba0c8fa1399--2019-1210_nigerian-jollof-rice_3x2_rocky-luten_006.jpg' },
+          { name: 'Fried Rice', price: 2800, desc: 'A colorful mix of rice, veggies, and spice.', image: 'https://urbanfarmie.com/wp-content/uploads/Nigerian-Fried-Rice-1x1-1.jpg' },
+          { name: 'White Rice', price: 1800, desc: 'Steamed white rice, soft and fluffy.', image: "https://thecaglediaries.com/wp-content/uploads/2025/02/Perfectly-Cooked-White-Rice-Featured-Image.jpg" },
+          { name: 'Coconut Rice', price: 2500, desc: 'Fragrant rice simmered in coconut milk.', image: 'https://www.recipetineats.com/tachyon/2014/10/Restaurant-Style-Coconut-Rice-2.jpg' },
+          { name: 'Rice & Stew', price: 3000, desc: 'Steamed rice served with rich tomato stew.', image: 'https://naijastickitchen.com/wp-content/uploads/2024/01/Buka-Stew-with-White-Rice-served-with-Plantain.jpeg' },
+          { name: 'Plantain', price: 800, desc: 'Sweet fried plantain served warm.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdycGO6cSHcBAFjq5Zy2z4bnON34Gt_adt7pZZ6fr4z56Apbo0wClvSmU&s=10' },
+          { name: 'Chips', price: 800, desc: 'Crispy chips lightly seasoned.', image: 'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2022-02-Sweet-Potato-Chips%2Fsweet_potato_chips_1_of_4' },
+          { name: 'Coleslaw', price: 1000, desc: 'Fresh, creamy cabbage and carrot slaw.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLypHg30w7UxVDA01D2gmmRUruUul966G4cpsoRdatpD8fzRYdf1iLOEs&s=10' }
+        ]
+      },
+      {
+        title: 'Nigerian Soups',
+        intro: 'Traditional soups prepared with authentic local flavors.',
+        items: [
+          { name: 'Afang Soup', price: 3500, desc: 'Rich vegetable soup, a Calabar delicacy.', image: 'https://eatwellabi.com/wp-content/uploads/2023/01/Afang-soup-18.jpg' },
+          { name: 'Atama Soup', price: 3500, desc: 'Traditional soup made with atama leaves and spices.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbpKqjFMsl5B1_dS9PUcqdjCtP7_eXS4l8OsJ8O8oJyCRy2Y6j--XfKmV&s=10" },
+          { name: 'Edikang Ikong Soup', price: 3500, desc: 'Nutritious green soup with rich native flavor.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOjJVps6tqF-deuNS5kBrgFZ0amP_y_at95mkta67jnu7qXT3A4VwedA7L&s=10" },
+          { name: 'Editan Soup', price: 3500, desc: 'Classic editan soup with aromatic seasoning.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6ZsJQh5X1lKlhsi1pV98asYoAZ5MSi9fNBxbxeFKlwcOr5vpDt1Cdu_w&s=10" },
+          { name: 'Afere Soup', price: 3500, desc: 'Traditional afere soup with hearty local taste.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTFlw_fEXa0Ln_AyqGilUh2-ldPIK8slhY6vBbA2f_AQ&s=10" },
+          { name: 'Okro Soup', price: 3500, desc: 'Silky okro soup with savory seasoning.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXlrRmaZQGoZlP6KzcwsIiTbzNB_thCTCNy6UehYHqe73zbPcbRHgsZP5&s=10' },
+          { name: 'Egusi Soup', price: 3500, desc: 'Ground melon soup with rich seasoning.', image: 'https://weeatatlast.com/wp-content/uploads/2024/01/egusi-soup-with-chicken-recipe-500x500.jpg' },
+          { name: 'Vegetable Soup', price: 3000, desc: 'Garden vegetables simmered with assorted meats.', image: 'https://cdn.loveandlemons.com/wp-content/uploads/2019/12/vegetable-soup.jpg' },
+          { name: 'White Soup (Afang-style/Native)', price: 3800, desc: 'Peppery white native soup with a smooth finish.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScNkR6_S4C7RPVJzPUossMSVZ86N5yIANuqITBI_73GYmJLfiEwQJH449a&s=10" },
+          { name: 'Fisherman Soup', price: 4500, desc: 'A hearty soup loaded with fresh catch and spices.', image: 'https://lowcarbafrica.com/wp-content/uploads/2024/06/Fisherman-Soup-3.jpg' }
+        ]
+      },
+      {
+        title: 'Extras',
+        intro: 'Quick add-ons to customize your meal.',
+        items: [
+          { name: 'Extra Meat', price: 1500, desc: 'Add an extra meat portion to your meal.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe6BGF6wqOz8SkgOkPq0yqFn1xha9qyjxaI5sMboOZuSDTMPnTGznj7d0p&s=10" },
+          { name: 'Extra Fish', price: 1500, desc: 'Add an extra fish portion to your meal.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbf6CEy_uYGtOKkz0bB17htbVwvoDpsfLXbfWFXl0ysY_Gffic0G8CumY&s=10" },
+          { name: 'Extra Plantain', price: 500, desc: 'Add a side of sweet fried plantain.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPb46svUvVlHTka0IL4RKihVvJL9ILMoQw8-gM0DRupzJTwQDzquulBxU&s=10" },
+          { name: 'Extra Sauce', price: 500, desc: 'Extra sauce for richer flavor.', image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKaPaQy2i-wRaM0_lkXjo1iwaL0tS2I2wNzBwEr52XmMbpWhbeDHxaOqa&s=10" }
         ]
       },
       {
@@ -1140,13 +1415,13 @@
             label: 'Alcoholic Drinks',
             items: [
               { name: 'Palm Wine', price: 2500, desc: 'Traditional palm wine served chilled.', image: 'https://www.tastingtable.com/img/gallery/what-is-palm-wine-and-why-is-it-so-popular-in-india/l-intro-1720556028.jpg' },
-              { name: 'Guinness Stout', price: 2000, desc: 'Rich, full-bodied stout, served cold.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'Star Lager', price: 1800, desc: 'Nigeria\'s classic crisp lager beer.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'Heineken', price: 2200, desc: 'Premium lager with a smooth, balanced taste.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'Gulder', price: 1800, desc: 'Bold, full-flavored Nigerian lager.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'Smirnoff Ice', price: 2200, desc: 'Light, fruity malt-based cooler.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'Red Wine', price: 8000, desc: 'A smooth, full-bodied glass of red wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' },
-              { name: 'White Wine', price: 8000, desc: 'A crisp, chilled glass of white wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4mW7l_qzUGQEbjJqT1Lte9LjRoaadaAxw-PYXCDNKEnXWnFpP0kaYqGY&s=10' }
+              { name: 'Guinness Stout', price: 2000, desc: 'Rich, full-bodied stout, served cold.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEnV9IfZ5PBgvg9HvQS5WkFbP79LcgR8scORnIrOU-EDp7BQlYdc0Oqw&s=10' },
+              { name: 'Star Lager', price: 1800, desc: 'Nigeria\'s classic crisp lager beer.', image: 'https://bier-berlin.com/cdn/shop/files/star-lager-beer-12-flaschen-450ml.png?v=1783067491' },
+              { name: 'Heineken', price: 2200, desc: 'Premium lager with a smooth, balanced taste.', image: 'https://m.media-amazon.com/images/I/71noC9LplML.jpg' },
+              { name: 'Gulder', price: 1800, desc: 'Bold, full-flavored Nigerian lager.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS37L-HTyxhEvy8Z_8wBzrLONoMIAwxb47-aMpTiEsBwn-MmuSpIdfJjL4&s=10' },
+              { name: 'Smirnoff Ice', price: 2200, desc: 'Light, fruity malt-based cooler.', image: 'https://i.etsystatic.com/46878432/r/il/b90179/5546021556/il_fullxfull.5546021556_gjrj.jpg' },
+              { name: 'Red Wine', price: 8000, desc: 'A smooth, full-bodied glass of red wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ170dzbF5ltOE43ISmyxPKbArqciwyjtxYujf1LRVlxObvNAD8hYRRkac&s=10' },
+              { name: 'White Wine', price: 8000, desc: 'A crisp, chilled glass of white wine.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBg9pJ7bPmtXsDT86xZZWeFzJPMxqt4wWoDEnK7uiHrauY3GdvaM0YXIk&s=10' }
             ]
           }
         ]
@@ -1325,7 +1600,7 @@ function submitOrder() {
   const total = document.getElementById('cartTotal').innerText;
 
   // Raw message string
-  const rawMessage = `*NEW ORDER - G & M RESTAURANT*\n\n` +
+  const rawMessage = `*NEW ORDER - G & M African Restaurant Venture*\n\n` +
                      `*Branch:* ${branch}\n` +
                      `*Customer:* ${name}\n` +
                      `*Phone:* ${phone}\n` +
@@ -1337,7 +1612,7 @@ function submitOrder() {
   const encodedMessage = encodeURIComponent(rawMessage);
 
   // Replace with your real target WhatsApp phone number (e.g., 2348012345678)
-  const targetPhoneNumber = "573234265620"; 
+  const targetPhoneNumber = "2347026841247"; 
 
   // Redirect to WhatsApp API
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhoneNumber}&text=${encodedMessage}`;
